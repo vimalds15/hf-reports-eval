@@ -1,12 +1,37 @@
 import { useState } from "react";
+import { usePropertyItem } from "../services/context/PropertyItemContext";
+import { useMetrics } from "../services/context/MetricsContext";
+import { useReports } from "../services/context/ReportsContext";
+import { useCanvasDetails } from "../services/context/CanvasDetailsContext";
+import { createMetric, createReport } from "../mock/api";
 
-const ProperitesPane = ({
-  propertyItem,
-  saveNewItemHandler = { saveNewItemHandler },
-}) => {
+const ProperitesPane = ({reportChat}) => {
   const [isChatSelected, setIsChatSelected] = useState(true);
 
+  const { propertyItem } = usePropertyItem();
+  const { setMetrics } = useMetrics();
+  const { setReports } = useReports();
+  const { canvasTitle, canvasDescription, canvasMetrics } = useCanvasDetails();
+
   const isMetric = !propertyItem?.components;
+
+  const saveNewItemHandler = async (type) => {
+    let payload = {
+      id: Math.floor(Math.random() * 10000),
+      title: canvasTitle,
+      description: canvasDescription,
+      conversation: reportChat,
+    };
+    if (type === "metric") {
+      payload = { ...canvasMetrics[0], ...payload };
+      await createMetric(payload);
+      setMetrics((prev) => [...prev, payload]);
+    } else {
+      payload = { components: canvasMetrics, ...payload };
+      await createReport(payload);
+      setReports((prev) => [...prev, payload]);
+    }
+  };
 
   return (
     <div className="flex flex-col justify-between h-screen w-fit p-4 shadow-lg min-w-80 max-w-80">

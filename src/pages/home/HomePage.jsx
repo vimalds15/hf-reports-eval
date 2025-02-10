@@ -1,81 +1,57 @@
 import { useState } from "react";
-
 import {
   ProperitesPane,
   ReportCanvasPane,
   SideNavBarPane,
 } from "../../components";
 import { ThreePaneLayout } from "../../layout";
-import { createMetric } from "../../mock/api";
+import { createMetric, createReport } from "../../mock/api";
+import { ActiveItemProvider } from "../../services/context/ActiveItemContext";
+import { CanvasDetailsProvider } from "../../services/context/CanvasDetailsContext";
+import { ReportsProvider } from "../../services/context/ReportsContext";
+import { MetricsProvider } from "../../services/context/MetricsContext";
+import { PropertyItemProvider } from "../../services/context/PropertyItemContext";
+import { CanvasChatProvider } from "../../services/context/CanvasChatContext";
 
 const HomePage = () => {
-  const [activeItem, setActiveItem] = useState({});
-  const [propertyItem, setPropertyItem] = useState({});
-  const [newMetric, setNewMetric] = useState(false);
-  const [newReport, setNewReport] = useState(false);
-  const [reports, setReports] = useState([]);
-  const [metrics, setMetrics] = useState([]);
-  const [reportTitle, setReportTitle] = useState("");
-  const [reportDescription, setReportDescription] = useState("");
-  const [reportMetrics, setReportMetrics] = useState([]);
-
-  const saveNewItemHandler = async (type) => {
-    let payload = {
-      id: Math.floor(Math.random() * 10000),
-      title: reportTitle,
-      description: reportDescription,
-    };
-    if (type === "metric") {
-      payload = { ...reportMetrics[0], ...payload };
-      await createMetric(payload);
-      setMetrics((prev) => [...prev, payload]);
-    } else {
-      payload = { components: reportMetrics, ...payload };
-      setReports((prev) => [...prev, payload]);
-    }
-  };
-
-  console.log(metrics);
+  const [reportChat, setReportChat] = useState([]);
+  const [newMetric, setNewMetric] = useState([]);
+  const [newReport, setNewReport] = useState([]);
 
   return (
-    <div>
-      <ThreePaneLayout
-        left={
-          <SideNavBarPane
-            setNewMetric={setNewMetric}
-            setNewReport={setNewReport}
-            setActiveItem={setActiveItem}
-            reports={reports}
-            setReports={setReports}
-            metrics={metrics}
-            setMetrics={setMetrics}
-            setPropertyItem={setPropertyItem}
-          />
-        }
-        middle={
-          <ReportCanvasPane
-            activeItem={activeItem}
-            newMetric={newMetric}
-            newReport={newReport}
-            propertyItem={propertyItem}
-            setPropertyItem={setPropertyItem}
-            title={reportTitle}
-            description={reportDescription}
-            setTitle={setReportTitle}
-            setDescription={setReportDescription}
-            reportDescription
-            reportMetrics={reportMetrics}
-            setReportMetrics={setReportMetrics}
-          />
-        }
-        right={
-          <ProperitesPane
-            propertyItem={propertyItem}
-            saveNewItemHandler={saveNewItemHandler}
-          />
-        }
-      />
-    </div>
+    <ActiveItemProvider>
+      <CanvasDetailsProvider>
+        <ReportsProvider>
+          <MetricsProvider>
+            <PropertyItemProvider>
+              <CanvasChatProvider>
+                <div>
+                  <ThreePaneLayout
+                    left={
+                      <SideNavBarPane
+                        setNewMetric={setNewMetric}
+                        setNewReport={setNewReport}
+                      />
+                    }
+                    middle={
+                      <ReportCanvasPane
+                        newMetric={newMetric}
+                        newReport={newReport}
+                        reportChat={reportChat}
+                        setReportChat={setReportChat}
+                      />
+                    }
+                    right={
+                      <ProperitesPane reportChat={reportChat}  />
+                    }
+                  />
+                </div>
+              </CanvasChatProvider>
+            </PropertyItemProvider>
+          </MetricsProvider>
+        </ReportsProvider>
+      </CanvasDetailsProvider>
+    </ActiveItemProvider>
   );
 };
 

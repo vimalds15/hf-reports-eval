@@ -28,7 +28,7 @@ export const getRandomMetric = () => {
   return newMetric;
 };
 
-const API_BASE_URL = "http://0.0.0.0:5001"; // Base URL for the API
+const API_BASE_URL = "http://localhost:5001"; // Base URL for the API
 
 // Fetch all reports
 export const getAllReports = async () => {

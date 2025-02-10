@@ -13,7 +13,17 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.no-scrollbar {
+  overflow: -moz-scrollbars-none; 
+  -ms-overflow-style: none; 
+}
+
+.no-scrollbar {
+  -webkit-overflow-scrolling: touch; 
 }

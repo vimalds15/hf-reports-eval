@@ -6,18 +6,19 @@ import {
   getReportById,
 } from "../mock/api";
 import Logo from "../assets/hf.svg";
+import SideNavActionButton from "./SideNavActionButton";
+import SideNavMenuItem from "./SideNavMenuItem";
+import { useActiveItem } from "../services/context/ActiveItemContext";
+import { usePropertyItem } from "../services/context/PropertyItemContext";
+import { useReports } from "../services/context/ReportsContext";
+import { useMetrics } from "../services/context/MetricsContext";
 
-const SideNavBarPane = ({
-  setActiveItem,
-  setNewReport,
-  setNewMetric,
-  setPropertyItem,
-  reports,
-  metrics,
-  setReports,
-  setMetrics,
-}) => {
+const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
   const [active, setActive] = useState(null);
+  const { setActiveItem } = useActiveItem();
+  const { reports, setReports } = useReports();
+  const { metrics, setMetrics } = useMetrics();
+  const { setPropertyItem } = usePropertyItem();
 
   const createNewMetricHandler = () => {
     setNewMetric(true);
@@ -52,7 +53,6 @@ const SideNavBarPane = ({
 
   const fetchMetricById = async (id) => {
     const response = await getMetricsById(id);
-    console.log(response);
     setActiveItem(response);
     setPropertyItem(response);
   };
@@ -82,49 +82,35 @@ const SideNavBarPane = ({
       <div className="mt-12 flex flex-col justify-between h-full">
         <div className="h-full">
           <div className="flex flex-col gap-1">
-            {reports?.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => selectSideMenuItemHandler(item.id, "report")}
-                className={`px-4 py-1 rounded truncate hover:bg-gray-200 cursor-pointer ${
-                  item.id === active && "bg-gray-300 hover:bg-gray-300"
-                }`}
-              >
-                {item?.title}
-              </div>
+            {reports?.map((report) => (
+              <SideNavMenuItem
+                key={report.id}
+                item={report}
+                active={active}
+                onClick={(id) => selectSideMenuItemHandler(id, "report")}
+              />
             ))}
           </div>
           <div className="my-4 h-0.5 w-full bg-gray-200" />
           <div>
             <p className="font-semibold mb-2">Metrics</p>
             <div className="flex flex-col gap-1">
-              {metrics?.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => selectSideMenuItemHandler(item.id, "metric")}
-                  className={`px-4 py-1 rounded truncate hover:bg-gray-200 cursor-pointer ${
-                    item.id === active && "bg-gray-300 hover:bg-gray-300"
-                  }`}
-                >
-                  {item?.title}
-                </div>
+              {metrics?.map((metric) => (
+                <SideNavMenuItem
+                  key={metric.id}
+                  item={metric}
+                  active={active}
+                  onClick={(id) => selectSideMenuItemHandler(id, "metric")}
+                />
               ))}
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <div
-            onClick={createNewMetricHandler}
-            className="bg-gradient-primary text-white px-4 py-2 rounded-md cursor-pointer"
-          >
-            Create a New Metric
-          </div>
-          <div
-            onClick={createNewReportHandler}
-            className="bg-black text-white px-4 py-2 rounded-md cursor-pointer"
-          >
-            Create a New Report
-          </div>
+          <SideNavActionButton
+            onCreateNewMetric={createNewMetricHandler}
+            onCreateNewReport={createNewReportHandler}
+          />
         </div>
       </div>
     </div>
