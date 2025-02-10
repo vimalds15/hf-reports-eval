@@ -8,11 +8,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const RadarChartGraph = ({ data }) => {
+const RadarChartGraph = ({ data, preview, fullScreen }) => {
   return (
-    <div className="p-4 bg-white shadow-lg rounded-xl">
-      <h2 className="text-xl font-semibold mb-4">{data?.title}</h2>
-      <ResponsiveContainer width="100%" height={300}>
+    <>
+      {!preview && (
+        <h2 className="text-xl font-semibold mb-4">{data?.title}</h2>
+      )}
+      <ResponsiveContainer
+        width="100%"
+        height={preview ? 200 : fullScreen ? 600 : 300}
+      >
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data?.data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="month" />
@@ -34,7 +39,7 @@ const RadarChartGraph = ({ data }) => {
           <Legend />
         </RadarChart>
       </ResponsiveContainer>
-    </div>
+    </>
   );
 };
 

@@ -12,5 +12,4 @@ export const ReportsProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use reports context
-export const useReports = () => useContext(ReportsContext);
+export const useReportsContext = () => useContext(ReportsContext);

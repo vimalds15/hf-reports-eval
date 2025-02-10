@@ -4,12 +4,14 @@ const useResetOnNewCanvas = (
   newMetric,
   newReport,
   setCanvasMetrics,
-  setPropertyItem
+  setPropertyItem,
+  setCanvasChat
 ) => {
   useEffect(() => {
     if (newMetric || newReport) {
       setCanvasMetrics([]);
       setPropertyItem([]);
+      setCanvasChat([]);
     }
   }, [newMetric, newReport, setCanvasMetrics, setPropertyItem]);
 };

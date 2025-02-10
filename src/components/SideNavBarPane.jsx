@@ -8,17 +8,19 @@ import {
 import Logo from "../assets/hf.svg";
 import SideNavActionButton from "./SideNavActionButton";
 import SideNavMenuItem from "./SideNavMenuItem";
-import { useActiveItem } from "../services/context/ActiveItemContext";
-import { usePropertyItem } from "../services/context/PropertyItemContext";
-import { useReports } from "../services/context/ReportsContext";
-import { useMetrics } from "../services/context/MetricsContext";
+import {
+  useReportsContext,
+  useMetricsContext,
+  useActiveItemContext,
+  usePropertyItemContext,
+} from "../services/context";
 
 const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
   const [active, setActive] = useState(null);
-  const { setActiveItem } = useActiveItem();
-  const { reports, setReports } = useReports();
-  const { metrics, setMetrics } = useMetrics();
-  const { setPropertyItem } = usePropertyItem();
+  const { setActiveItem } = useActiveItemContext();
+  const { reports, setReports } = useReportsContext();
+  const { metrics, setMetrics } = useMetricsContext();
+  const { setPropertyItem } = usePropertyItemContext();
 
   const createNewMetricHandler = () => {
     setNewMetric(true);
@@ -81,28 +83,32 @@ const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
 
       <div className="mt-12 flex flex-col justify-between h-full">
         <div className="h-full">
-          <div className="flex flex-col gap-1">
-            {reports?.map((report) => (
-              <SideNavMenuItem
-                key={report.id}
-                item={report}
-                active={active}
-                onClick={(id) => selectSideMenuItemHandler(id, "report")}
-              />
-            ))}
+          <div className="max-h-[30vh] overflow-y-scroll no-scrollbar">
+            <div className="flex flex-col gap-1">
+              {reports?.map((report) => (
+                <SideNavMenuItem
+                  key={report.id}
+                  item={report}
+                  active={active}
+                  onClick={(id) => selectSideMenuItemHandler(id, "report")}
+                />
+              ))}
+            </div>
           </div>
           <div className="my-4 h-0.5 w-full bg-gray-200" />
           <div>
             <p className="font-semibold mb-2">Metrics</p>
-            <div className="flex flex-col gap-1">
-              {metrics?.map((metric) => (
-                <SideNavMenuItem
-                  key={metric.id}
-                  item={metric}
-                  active={active}
-                  onClick={(id) => selectSideMenuItemHandler(id, "metric")}
-                />
-              ))}
+            <div className="max-h-[35vh] overflow-scroll no-scrollbar">
+              <div className="flex flex-col gap-1 overflow-y-scroll">
+                {metrics?.map((metric) => (
+                  <SideNavMenuItem
+                    key={metric.id}
+                    item={metric}
+                    active={active}
+                    onClick={(id) => selectSideMenuItemHandler(id, "metric")}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

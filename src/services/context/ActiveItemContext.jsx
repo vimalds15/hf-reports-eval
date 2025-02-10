@@ -12,4 +12,4 @@ export const ActiveItemProvider = ({ children }) => {
   );
 };
 
-export const useActiveItem = () => useContext(ActiveItemContext);
+export const useActiveItemContext = () => useContext(ActiveItemContext);

@@ -570,6 +570,188 @@
           "properties": {}
         }
       ]
+    },
+    {
+      "id": "1229",
+      "components": [
+        {
+          "id": 8581,
+          "title": "Monthly Tickets",
+          "description": "Description of Metric 3",
+          "conversation": [],
+          "component_type": "pie_chart",
+          "data": {
+            "title": "Monthly Tickets",
+            "label1": "Tickets",
+            "label2": "Resolved",
+            "data": [
+              {
+                "month": "Jan",
+                "tickets": 4000,
+                "resolved": 2000
+              },
+              {
+                "month": "Feb",
+                "tickets": 3000,
+                "resolved": 1500
+              },
+              {
+                "month": "Mar",
+                "tickets": 5000,
+                "resolved": 2500
+              },
+              {
+                "month": "Apr",
+                "tickets": 7000,
+                "resolved": 3500
+              },
+              {
+                "month": "May",
+                "tickets": 6000,
+                "resolved": 3000
+              },
+              {
+                "month": "Jun",
+                "tickets": 8000,
+                "resolved": 4000
+              },
+              {
+                "month": "Jul",
+                "tickets": 7500,
+                "resolved": 3750
+              },
+              {
+                "month": "Aug",
+                "tickets": 9000,
+                "resolved": 4500
+              },
+              {
+                "month": "Sep",
+                "tickets": 8500,
+                "resolved": 4250
+              },
+              {
+                "month": "Oct",
+                "tickets": 9500,
+                "resolved": 4750
+              },
+              {
+                "month": "Nov",
+                "tickets": 10000,
+                "resolved": 5000
+              },
+              {
+                "month": "Dec",
+                "tickets": 11000,
+                "resolved": 5500
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "6",
+          "title": "Monthly Sales",
+          "description": "Description of Metric 3",
+          "conversation": [
+            {
+              "type": "user",
+              "message": "Sample Metric 3"
+            },
+            {
+              "type": "assistant",
+              "message": "Here is Sample Metric 3"
+            },
+            {
+              "type": "user",
+              "message": "Sample Metric 3"
+            },
+            {
+              "type": "assistant",
+              "message": "Here is Sample Metric 3"
+            }
+          ],
+          "component_type": "area_chart",
+          "data": {
+            "title": "Monthly Sales",
+            "data": [
+              {
+                "month": "Jan",
+                "sales": 4000,
+                "profit": 2000
+              },
+              {
+                "month": "Feb",
+                "sales": 3000,
+                "profit": 1500
+              },
+              {
+                "month": "Mar",
+                "sales": 5000,
+                "profit": 2500
+              },
+              {
+                "month": "Apr",
+                "sales": 7000,
+                "profit": 3500
+              },
+              {
+                "month": "May",
+                "sales": 6000,
+                "profit": 3000
+              },
+              {
+                "month": "Jun",
+                "sales": 8000,
+                "profit": 4000
+              },
+              {
+                "month": "Jul",
+                "sales": 7500,
+                "profit": 3750
+              },
+              {
+                "month": "Aug",
+                "sales": 9000,
+                "profit": 4500
+              },
+              {
+                "month": "Sep",
+                "sales": 8500,
+                "profit": 4250
+              },
+              {
+                "month": "Oct",
+                "sales": 9500,
+                "profit": 4750
+              },
+              {
+                "month": "Nov",
+                "sales": 10000,
+                "profit": 5000
+              },
+              {
+                "month": "Dec",
+                "sales": 11000,
+                "profit": 5500
+              }
+            ]
+          },
+          "properties": {}
+        }
+      ],
+      "title": "report 5",
+      "description": "report desc",
+      "conversation": [
+        {
+          "type": "user",
+          "message": "fa"
+        },
+        {
+          "type": "assistant",
+          "message": "Sure, here it is"
+        }
+      ]
     }
   ],
   "metrics": [
@@ -918,770 +1100,6 @@
             "month": "Dec",
             "tickets": 11000,
             "resolved": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "4065",
-      "title": "test",
-      "description": "test des",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        }
-      ],
-      "component_type": "bar_chart",
-      "data": {
-        "title": "Monthly Profit",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
-          },
-          {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
-          },
-          {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
-          },
-          {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "7566",
-      "title": "test 2",
-      "description": "test 2",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        }
-      ],
-      "component_type": "line_chart",
-      "data": {
-        "title": "Monthly Sales",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000
-          },
-          {
-            "month": "Mar",
-            "sales": 5000
-          },
-          {
-            "month": "Apr",
-            "sales": 7000
-          },
-          {
-            "month": "May",
-            "sales": 6000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500
-          },
-          {
-            "month": "Aug",
-            "sales": 9000
-          },
-          {
-            "month": "Sep",
-            "sales": 8500
-          },
-          {
-            "month": "Oct",
-            "sales": 9500
-          },
-          {
-            "month": "Nov",
-            "sales": 10000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "9790",
-      "title": "test 3",
-      "description": "desc 3",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        }
-      ],
-      "component_type": "pie_chart",
-      "data": {
-        "title": "Monthly Tickets",
-        "label1": "Tickets",
-        "label2": "Resolved",
-        "data": [
-          {
-            "month": "Jan",
-            "tickets": 4000,
-            "resolved": 2000
-          },
-          {
-            "month": "Feb",
-            "tickets": 3000,
-            "resolved": 1500
-          },
-          {
-            "month": "Mar",
-            "tickets": 5000,
-            "resolved": 2500
-          },
-          {
-            "month": "Apr",
-            "tickets": 7000,
-            "resolved": 3500
-          },
-          {
-            "month": "May",
-            "tickets": 6000,
-            "resolved": 3000
-          },
-          {
-            "month": "Jun",
-            "tickets": 8000,
-            "resolved": 4000
-          },
-          {
-            "month": "Jul",
-            "tickets": 7500,
-            "resolved": 3750
-          },
-          {
-            "month": "Aug",
-            "tickets": 9000,
-            "resolved": 4500
-          },
-          {
-            "month": "Sep",
-            "tickets": 8500,
-            "resolved": 4250
-          },
-          {
-            "month": "Oct",
-            "tickets": 9500,
-            "resolved": 4750
-          },
-          {
-            "month": "Nov",
-            "tickets": 10000,
-            "resolved": 5000
-          },
-          {
-            "month": "Dec",
-            "tickets": 11000,
-            "resolved": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "4738",
-      "title": "4",
-      "description": "4",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        }
-      ],
-      "component_type": "bar_chart",
-      "data": {
-        "title": "Monthly Profit",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
-          },
-          {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
-          },
-          {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
-          },
-          {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "4134",
-      "title": "5",
-      "description": "5 des",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        }
-      ],
-      "component_type": "line_chart",
-      "data": {
-        "title": "Monthly Sales",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000
-          },
-          {
-            "month": "Mar",
-            "sales": 5000
-          },
-          {
-            "month": "Apr",
-            "sales": 7000
-          },
-          {
-            "month": "May",
-            "sales": 6000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500
-          },
-          {
-            "month": "Aug",
-            "sales": 9000
-          },
-          {
-            "month": "Sep",
-            "sales": 8500
-          },
-          {
-            "month": "Oct",
-            "sales": 9500
-          },
-          {
-            "month": "Nov",
-            "sales": 10000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "2876",
-      "title": "rest",
-      "description": "test",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        }
-      ],
-      "component_type": "bar_chart",
-      "data": {
-        "title": "Monthly Profit",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
-          },
-          {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
-          },
-          {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
-          },
-          {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "2856",
-      "title": "test",
-      "description": "test",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        }
-      ],
-      "component_type": "bar_chart",
-      "data": {
-        "title": "Monthly Profit",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
-          },
-          {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
-          },
-          {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
-          },
-          {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "8454",
-      "title": "Untitled",
-      "description": "Untitled Description",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "f"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        },
-        {
-          "type": "user",
-          "message": "great"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        },
-        {
-          "type": "user",
-          "message": "vera maari"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        }
-      ],
-      "component_type": "line_chart",
-      "data": {
-        "title": "Monthly Sales",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000
-          },
-          {
-            "month": "Mar",
-            "sales": 5000
-          },
-          {
-            "month": "Apr",
-            "sales": 7000
-          },
-          {
-            "month": "May",
-            "sales": 6000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500
-          },
-          {
-            "month": "Aug",
-            "sales": 9000
-          },
-          {
-            "month": "Sep",
-            "sales": 8500
-          },
-          {
-            "month": "Oct",
-            "sales": 9500
-          },
-          {
-            "month": "Nov",
-            "sales": 10000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": 8034,
-      "title": "tes1",
-      "description": "tes1",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "f"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        }
-      ],
-      "component_type": "line_chart",
-      "data": {
-        "title": "Monthly Sales",
-        "data": [
-          {
-            "month": "Jan",
-            "sales": 4000
-          },
-          {
-            "month": "Feb",
-            "sales": 3000
-          },
-          {
-            "month": "Mar",
-            "sales": 5000
-          },
-          {
-            "month": "Apr",
-            "sales": 7000
-          },
-          {
-            "month": "May",
-            "sales": 6000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500
-          },
-          {
-            "month": "Aug",
-            "sales": 9000
-          },
-          {
-            "month": "Sep",
-            "sales": 8500
-          },
-          {
-            "month": "Oct",
-            "sales": 9500
-          },
-          {
-            "month": "Nov",
-            "sales": 10000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000
           }
         ]
       },

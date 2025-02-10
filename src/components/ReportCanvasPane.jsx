@@ -1,26 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ConversationBar from "./ConversationBar";
 import { useMetricSelection, useReportDetailsWithChat } from "../hooks";
 import CanvasHeader from "./CanvasHeader";
 import EditableText from "./EditableText";
 import MetricItem from "./MetricItem";
 import ToggleConversationBarButton from "./ToggleConversationBarButton";
-import { useActiveItem } from "../services/context/ActiveItemContext";
-import { usePropertyItem } from "../services/context/PropertyItemContext";
-import { useCanvasDetails } from "../services/context/CanvasDetailsContext";
+import {
+  useActiveItemContext,
+  usePropertyItemContext,
+  useCanvasDetailsContext,
+} from "../services/context";
 import useResetOnNewCanvas from "../hooks/useResetOnNewCanvas";
+import ImportMetricsModal from "./ImportMetricsModal";
+import { MdAddCircleOutline } from "react-icons/md";
+import FullScreenWidget from "./FullScreenWidget";
 
-const ReportCanvasPane = ({
-  newMetric = false,
-  newReport = false,
-  reportChat,
-  setReportChat,
-}) => {
-  const { activeItem } = useActiveItem();
+const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
+  const [showImportModal, setShowImportModal] = useState(false);
+  const [viewFullScreenMetric, setViewFullScreenMetric] = useState(false);
 
-  const isMetric = !newReport && !activeItem?.components;
+  const { activeItem } = useActiveItemContext();
+  const { setPropertyItem } = usePropertyItemContext();
 
-  const { setPropertyItem } = usePropertyItem();
   const {
     canvasTitle,
     canvasDescription,
@@ -28,7 +29,11 @@ const ReportCanvasPane = ({
     setCanvasDescription,
     canvasMetrics,
     setCanvasMetrics,
-  } = useCanvasDetails();
+    canvasChat,
+    setCanvasChat,
+  } = useCanvasDetailsContext();
+
+  const isMetric = !newReport && !activeItem?.components;
 
   const {
     selectedMetric,
@@ -51,15 +56,19 @@ const ReportCanvasPane = ({
       setCanvasDescription,
       newMetric,
       newReport,
-      reportChat,
+      canvasChat,
+      canvasMetrics,
       setCanvasMetrics,
-      setReportChat,
+      setCanvasChat,
       activeItem,
-      setPropertyItem
+      setPropertyItem,
+      isMetric,
+      selectedMetric,
+      setSelectedMetric
     );
 
   useEffect(() => {
-    setSelectedMetric("");
+    setSelectedMetric(null);
     setCanvasTitle(activeItem?.title || "Untitled");
     setCanvasDescription(activeItem?.description || "Untitled Description");
     if (activeItem) {
@@ -69,9 +78,23 @@ const ReportCanvasPane = ({
         setCanvasMetrics([activeItem]);
       }
     }
-  }, [activeItem?.id]);
+  }, [
+    activeItem,
+    activeItem.id,
+    isMetric,
+    setCanvasDescription,
+    setCanvasMetrics,
+    setCanvasTitle,
+    setSelectedMetric,
+  ]);
 
-  useResetOnNewCanvas(newMetric, newReport, setCanvasMetrics, setPropertyItem);
+  useResetOnNewCanvas(
+    newMetric,
+    newReport,
+    setCanvasMetrics,
+    setPropertyItem,
+    setCanvasChat
+  );
 
   return (
     <div
@@ -103,16 +126,46 @@ const ReportCanvasPane = ({
               </div>
 
               <div className="w-full">
-                {canvasMetrics?.map((item) => (
-                  <MetricItem
-                    item={item}
-                    selectedMetric={selectedMetric}
-                    metricSelectionHandler={metricSelectionHandler}
-                    isMetric={isMetric}
-                    newMetric={newMetric}
-                  />
+                {canvasMetrics?.map((item, index) => (
+                  <div key={item.id} className="my-2">
+                    <p onClick={() => setViewFullScreenMetric(index)}>
+                      Show Full Screen
+                    </p>
+                    <MetricItem
+                      item={item}
+                      selectedMetric={selectedMetric}
+                      metricSelectionHandler={metricSelectionHandler}
+                      isMetric={isMetric}
+                      newMetric={newMetric}
+                    />
+                  </div>
                 ))}
               </div>
+
+              {!isMetric && (
+                <div
+                  onClick={() => setShowImportModal(true)}
+                  className="flex flex-col items-center gap-1 justify-center bg-[#ff7a00]/20 my-4 p-4 rounded-lg cursor-pointer text-sm"
+                >
+                  <MdAddCircleOutline size={24} />
+                  <p>Import Components</p>
+                </div>
+              )}
+
+              {typeof viewFullScreenMetric === "number" && (
+                <FullScreenWidget
+                  metrics={canvasMetrics}
+                  setIsOpen={setViewFullScreenMetric}
+                  initialIndex={viewFullScreenMetric}
+                />
+              )}
+
+              {showImportModal && (
+                <ImportMetricsModal
+                  showImportModal={showImportModal}
+                  setShowImportModal={setShowImportModal}
+                />
+              )}
             </div>
 
             <ToggleConversationBarButton

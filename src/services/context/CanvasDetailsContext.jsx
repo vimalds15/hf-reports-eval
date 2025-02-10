@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CanvasDetailsContext = createContext();
 
@@ -6,6 +6,7 @@ export const CanvasDetailsProvider = ({ children }) => {
   const [canvasTitle, setCanvasTitle] = useState("");
   const [canvasDescription, setCanvasDescription] = useState("");
   const [canvasMetrics, setCanvasMetrics] = useState([]);
+  const [canvasChat, setCanvasChat] = useState([]);
 
   return (
     <CanvasDetailsContext.Provider
@@ -16,6 +17,8 @@ export const CanvasDetailsProvider = ({ children }) => {
         setCanvasDescription,
         canvasMetrics,
         setCanvasMetrics,
+        canvasChat,
+        setCanvasChat,
       }}
     >
       {children}
@@ -23,4 +26,4 @@ export const CanvasDetailsProvider = ({ children }) => {
   );
 };
 
-export const useCanvasDetails = () => useContext(CanvasDetailsContext);
+export const useCanvasDetailsContext = () => useContext(CanvasDetailsContext);

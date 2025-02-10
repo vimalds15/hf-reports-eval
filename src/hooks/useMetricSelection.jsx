@@ -17,7 +17,7 @@ const useMetricSelection = (
 
   const removeSelectionHandler = () => {
     if (!newMetric && !newReport) {
-      setSelectedMetric("");
+      setSelectedMetric(null);
       setPropertyItem(activeItem);
     }
   };

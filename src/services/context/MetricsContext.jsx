@@ -12,4 +12,4 @@ export const MetricsProvider = ({ children }) => {
   );
 };
 
-export const useMetrics = () => useContext(MetricsContext);
+export const useMetricsContext = () => useContext(MetricsContext);

@@ -12,4 +12,4 @@ export const PropertyItemProvider = ({ children }) => {
   );
 };
 
-export const usePropertyItem = () => useContext(PropertyItemContext);
+export const usePropertyItemContext = () => useContext(PropertyItemContext);

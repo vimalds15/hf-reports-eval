@@ -1,12 +1,17 @@
 import { Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
-const PieChartGraph = ({ data }) => {
+const PieChartGraph = ({ data, preview, fullScreen }) => {
   const COLORS = ["#8884d8", "#82ca9d", "#ffc658"];
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-xl">
-      <h2 className="text-xl font-semibold mb-4">{data.title}</h2>
-      <ResponsiveContainer width="100%" height={300}>
+    <>
+      {!preview && (
+        <h2 className="text-xl font-semibold mb-4">{data?.title}</h2>
+      )}
+      <ResponsiveContainer
+        width="100%"
+        height={preview ? 200 : fullScreen ? 600 : 300}
+      >
         <PieChart>
           <Pie
             data={data.data}
@@ -28,7 +33,7 @@ const PieChartGraph = ({ data }) => {
           <Tooltip />
         </PieChart>
       </ResponsiveContainer>
-    </div>
+    </>
   );
 };
 

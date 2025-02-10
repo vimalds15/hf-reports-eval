@@ -5,7 +5,10 @@ const ToggleConversationBarButton = ({
   showConversationBar,
 }) => (
   <div
-    onClick={() => setShowConversationBar((prev) => !prev)}
+    onClick={(e) => {
+      e.stopPropagation();
+      setShowConversationBar((prev) => !prev);
+    }}
     className="absolute bottom-6 right-6 bg-gradient-primary rounded-full overflow-hidden p-2 cursor-pointer"
   >
     <img

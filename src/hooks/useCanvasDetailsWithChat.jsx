@@ -3,60 +3,86 @@ import { getRandomMetric } from "../mock/api";
 import { createConversationPayload } from "../utils/helper";
 
 const useReportDetailsWithChat = (
-  title,
-  setTitle,
-  description,
-  setDescription,
+  canvasTitle,
+  setCanvasTitle,
+  canvasDescription,
+  setCanvasDescription,
   newMetric,
   newReport,
-  reportChat,
-  setReportMetrics,
-  setReportChat,
+  canvasChat,
+  canvasMetrics,
+  setCanvasMetrics,
+  setCanvasChat,
   activeItem,
-  setPropertyItem
+  setPropertyItem,
+  isMetric,
+  selectedMetric
 ) => {
   const [showConversationBar, setShowConversationBar] = useState(false);
 
   useEffect(() => {
     if (activeItem) {
-      setTitle(activeItem?.title || "Untitled");
-      setDescription(activeItem?.description || "Untitled Description");
+      setCanvasTitle(activeItem?.title || "Untitled");
+      setCanvasDescription(activeItem?.description || "Untitled Description");
       if (!newMetric && !newReport) {
-        setReportMetrics(activeItem?.components || []);
+        setCanvasMetrics(activeItem?.components || []);
       }
     }
-  }, [activeItem, newMetric, newReport, setReportMetrics]);
+  }, [
+    activeItem,
+    newMetric,
+    newReport,
+    setCanvasDescription,
+    setCanvasMetrics,
+    setCanvasTitle,
+  ]);
 
-  const chatSubmitHandler = (e) => {
+  const chatSubmitHandler = async (e) => {
     e.preventDefault();
     const inputValue = e.target.elements["chat-message"].value.trim();
     if (!inputValue) return;
 
     const payload = createConversationPayload(inputValue);
 
-    let response = getRandomMetric(payload);
-    response = {
-      ...response,
-      conversation: [...reportChat, ...payload.conversation],
-    };
+    let response = await getRandomMetric(payload);
 
-    setReportChat((prev) => [...prev, ...payload.conversation]);
+    setCanvasChat((prev) => [...prev, ...payload.conversation]);
 
-    if (newMetric) {
-      setReportMetrics([response]);
+    if (newMetric || isMetric) {
+      setCanvasMetrics([response]);
+    } else if (selectedMetric) {
+      response = {
+        ...response,
+        id: selectedMetric,
+        conversation: payload.conversation,
+      };
+      const newMetrics = canvasMetrics.map((item) => {
+        if (item.id === selectedMetric) {
+          return response;
+        }
+        return item;
+      });
+      setCanvasMetrics(newMetrics);
     } else {
-      setReportMetrics((prev) => [...prev, response]);
+      setCanvasMetrics((prev) => [...prev, response]);
     }
 
-    setPropertyItem(response);
+    let propertyItem = {
+      ...response,
+      id: activeItem.id,
+      conversation: [...canvasChat, ...payload.conversation],
+    };
+
+    setPropertyItem(propertyItem);
+
     e.target.reset();
   };
 
   return {
-    title,
-    setTitle,
-    description,
-    setDescription,
+    canvasTitle,
+    setCanvasTitle,
+    canvasDescription,
+    setCanvasDescription,
     showConversationBar,
     setShowConversationBar,
     chatSubmitHandler,

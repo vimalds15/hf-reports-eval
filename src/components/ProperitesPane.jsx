@@ -1,35 +1,81 @@
 import { useState } from "react";
-import { usePropertyItem } from "../services/context/PropertyItemContext";
-import { useMetrics } from "../services/context/MetricsContext";
-import { useReports } from "../services/context/ReportsContext";
-import { useCanvasDetails } from "../services/context/CanvasDetailsContext";
-import { createMetric, createReport } from "../mock/api";
+import {
+  usePropertyItemContext,
+  useMetricsContext,
+  useReportsContext,
+  useCanvasDetailsContext,
+  useActiveItemContext,
+} from "../services/context";
+import {
+  createMetric,
+  createReport,
+  deleteMetric,
+  deleteReport,
+  updateMetric,
+  updateReport,
+} from "../mock/api";
 
-const ProperitesPane = ({reportChat}) => {
+const ProperitesPane = ({ newMetric, newReport }) => {
   const [isChatSelected, setIsChatSelected] = useState(true);
 
-  const { propertyItem } = usePropertyItem();
-  const { setMetrics } = useMetrics();
-  const { setReports } = useReports();
-  const { canvasTitle, canvasDescription, canvasMetrics } = useCanvasDetails();
+  const { propertyItem } = usePropertyItemContext();
+  const { metrics, setMetrics } = useMetricsContext();
+  const { reports, setReports } = useReportsContext();
+  const { canvasTitle, canvasDescription, canvasMetrics, canvasChat } =
+    useCanvasDetailsContext();
+
+  const { setActiveItem } = useActiveItemContext();
 
   const isMetric = !propertyItem?.components;
 
-  const saveNewItemHandler = async (type) => {
+  const saveItemHandler = async (type) => {
     let payload = {
-      id: Math.floor(Math.random() * 10000),
       title: canvasTitle,
       description: canvasDescription,
-      conversation: reportChat,
+      conversation: canvasChat,
     };
-    if (type === "metric") {
-      payload = { ...canvasMetrics[0], ...payload };
-      await createMetric(payload);
-      setMetrics((prev) => [...prev, payload]);
+    if (newReport || newMetric) {
+      if (type === "metric") {
+        payload = {
+          ...canvasMetrics[0],
+          ...payload,
+          id: Math.floor(Math.random() * 10000),
+        };
+        await createMetric(payload);
+        setMetrics((prev) => [...prev, payload]);
+      } else {
+        payload = {
+          components: canvasMetrics,
+          ...payload,
+          id: Math.floor(Math.random() * 10000),
+        };
+        await createReport(payload);
+        setReports((prev) => [...prev, payload]);
+      }
+    } else if (isMetric) {
+      payload = {
+        ...canvasMetrics[0],
+        ...payload,
+      };
+
+      await updateMetric(propertyItem.id, payload);
     } else {
-      payload = { components: canvasMetrics, ...payload };
-      await createReport(payload);
-      setReports((prev) => [...prev, payload]);
+      payload = { ...payload, components: canvasMetrics };
+      await updateReport(propertyItem.id, payload);
+    }
+  };
+
+  const deleteItemHandler = async (type) => {
+    if (type === "metric") {
+      await deleteMetric(propertyItem.id);
+      let updatedMetrics = metrics.filter((item) => item.id != propertyItem.id);
+      setMetrics(updatedMetrics);
+      setActiveItem({});
+    } else {
+      await deleteReport(propertyItem.id);
+      let updatedReports = reports.filter((item) => item.id != propertyItem.id);
+      setMetrics(updatedReports);
+      setActiveItem({});
     }
   };
 
@@ -89,19 +135,30 @@ const ProperitesPane = ({reportChat}) => {
         <div className="flex gap-2">
           <div
             onClick={() => {
-              if (isMetric) {
-                saveNewItemHandler("metric");
-              } else {
-                saveNewItemHandler("report");
+              if (newReport || !isMetric) {
+                saveItemHandler("report");
+              } else if (isMetric || newMetric) {
+                saveItemHandler("metric");
               }
             }}
             className="flex-1 text-center border-2 border-black font-semibold px-4 py-2 rounded-md cursor-pointer hover:bg-black hover:text-white transition-all"
           >
             Save
           </div>
-          <div className="flex-1 text-center border-2 border-red-500 font-semibold  text-red-500 px-4 py-2 rounded-md cursor-pointer hover:bg-red-700 hover:border-red-700 hover:text-white transition-all">
-            Delete
-          </div>
+          {(!newReport || !newMetric) && (
+            <div
+              onClick={() => {
+                if (isMetric) {
+                  deleteItemHandler("metric");
+                } else {
+                  deleteItemHandler("report");
+                }
+              }}
+              className="flex-1 text-center border-2 border-red-500 font-semibold  text-red-500 px-4 py-2 rounded-md cursor-pointer hover:bg-red-700 hover:border-red-700 hover:text-white transition-all"
+            >
+              Delete
+            </div>
+          )}
         </div>
       </div>
     </div>
