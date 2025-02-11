@@ -1,751 +1,552 @@
 {
   "reports": [
     {
-      "id": "1",
-      "title": "Report 1",
-      "description": "This is report 1",
+      "title": "Ticket Inflow",
+      "description": "Ticket Inflow for HF HelpDesk ",
       "conversation": [
         {
           "type": "user",
-          "message": "Sample Report 1"
+          "message": "give any random metric"
         },
         {
           "type": "assistant",
-          "message": "Here is Sample Report 1"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 1"
+          "message": "Sure, here it is"
         }
       ],
       "components": [
         {
-          "id": 7,
-          "component_type": "radar_chart",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 3"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 3"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 3"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 3"
-            }
-          ],
-          "data": {
-            "title": "Monthly Tickets",
-            "label1": "Tickets",
-            "label2": "Resolved",
-            "data": [
-              {
-                "month": "Jan",
-                "tickets": 4000,
-                "resolved": 2000
-              },
-              {
-                "month": "Feb",
-                "tickets": 3000,
-                "resolved": 1500
-              },
-              {
-                "month": "Mar",
-                "tickets": 5000,
-                "resolved": 2500
-              },
-              {
-                "month": "Apr",
-                "tickets": 7000,
-                "resolved": 3500
-              },
-              {
-                "month": "May",
-                "tickets": 6000,
-                "resolved": 3000
-              },
-              {
-                "month": "Jun",
-                "tickets": 8000,
-                "resolved": 4000
-              },
-              {
-                "month": "Jul",
-                "tickets": 7500,
-                "resolved": 3750
-              },
-              {
-                "month": "Aug",
-                "tickets": 9000,
-                "resolved": 4500
-              },
-              {
-                "month": "Sep",
-                "tickets": 8500,
-                "resolved": 4250
-              },
-              {
-                "month": "Oct",
-                "tickets": 9500,
-                "resolved": 4750
-              },
-              {
-                "month": "Nov",
-                "tickets": 10000,
-                "resolved": 5000
-              },
-              {
-                "month": "Dec",
-                "tickets": 11000,
-                "resolved": 5500
-              }
-            ]
-          },
-          "properties": {}
-        },
-        {
-          "id": 8,
-          "component_type": "pie_chart",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 5"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 5"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 5"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 5"
-            }
-          ],
-          "data": {
-            "title": "Monthly Tickets",
-            "label1": "Tickets",
-            "label2": "Resolved",
-            "data": [
-              {
-                "month": "Jan",
-                "tickets": 4000,
-                "resolved": 2000
-              },
-              {
-                "month": "Feb",
-                "tickets": 3000,
-                "resolved": 1500
-              },
-              {
-                "month": "Mar",
-                "tickets": 5000,
-                "resolved": 2500
-              },
-              {
-                "month": "Apr",
-                "tickets": 7000,
-                "resolved": 3500
-              },
-              {
-                "month": "May",
-                "tickets": 6000,
-                "resolved": 3000
-              },
-              {
-                "month": "Jun",
-                "tickets": 8000,
-                "resolved": 4000
-              },
-              {
-                "month": "Jul",
-                "tickets": 7500,
-                "resolved": 3750
-              },
-              {
-                "month": "Aug",
-                "tickets": 9000,
-                "resolved": 4500
-              },
-              {
-                "month": "Sep",
-                "tickets": 8500,
-                "resolved": 4250
-              },
-              {
-                "month": "Oct",
-                "tickets": 9500,
-                "resolved": 4750
-              },
-              {
-                "month": "Nov",
-                "tickets": 10000,
-                "resolved": 5000
-              },
-              {
-                "month": "Dec",
-                "tickets": 11000,
-                "resolved": 5500
-              }
-            ]
-          },
-          "properties": {}
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "title": "Report 2",
-      "description": "This is report 2",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Report 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 2"
-        }
-      ],
-      "components": [
-        {
-          "id": 7,
-          "component_type": "area_chart",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 2"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 2"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 2"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 2"
-            }
-          ],
-          "data": {
-            "title": "Monthly Profit",
-            "data": [
-              {
-                "month": "Jan",
-                "sales": 4000,
-                "profit": 2000
-              },
-              {
-                "month": "Feb",
-                "sales": 3000,
-                "profit": 1500
-              },
-              {
-                "month": "Mar",
-                "sales": 5000,
-                "profit": 2500
-              },
-              {
-                "month": "Apr",
-                "sales": 7000,
-                "profit": 3500
-              },
-              {
-                "month": "May",
-                "sales": 6000,
-                "profit": 3000
-              },
-              {
-                "month": "Jun",
-                "sales": 8000,
-                "profit": 4000
-              },
-              {
-                "month": "Jul",
-                "sales": 7500,
-                "profit": 3750
-              },
-              {
-                "month": "Aug",
-                "sales": 9000,
-                "profit": 4500
-              },
-              {
-                "month": "Sep",
-                "sales": 8500,
-                "profit": 4250
-              },
-              {
-                "month": "Oct",
-                "sales": 9500,
-                "profit": 4750
-              },
-              {
-                "month": "Nov",
-                "sales": 10000,
-                "profit": 5000
-              },
-              {
-                "month": "Dec",
-                "sales": 11000,
-                "profit": 5500
-              }
-            ]
-          },
-          "properties": {}
-        }
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Report 3",
-      "description": "This is report 3",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Report 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Report 3"
-        }
-      ],
-      "components": [
-        {
-          "id": 7,
-          "component_type": "bar_chart",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 1"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 1"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 1"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 1"
-            }
-          ],
-          "data": {
-            "title": "Monthly Profit",
-            "data": [
-              {
-                "month": "Jan",
-                "sales": 4000,
-                "profit": 2000
-              },
-              {
-                "month": "Feb",
-                "sales": 3000,
-                "profit": 1500
-              },
-              {
-                "month": "Mar",
-                "sales": 5000,
-                "profit": 2500
-              },
-              {
-                "month": "Apr",
-                "sales": 7000,
-                "profit": 3500
-              },
-              {
-                "month": "May",
-                "sales": 6000,
-                "profit": 3000
-              },
-              {
-                "month": "Jun",
-                "sales": 8000,
-                "profit": 4000
-              },
-              {
-                "month": "Jul",
-                "sales": 7500,
-                "profit": 3750
-              },
-              {
-                "month": "Aug",
-                "sales": 9000,
-                "profit": 4500
-              },
-              {
-                "month": "Sep",
-                "sales": 8500,
-                "profit": 4250
-              },
-              {
-                "month": "Oct",
-                "sales": 9500,
-                "profit": 4750
-              },
-              {
-                "month": "Nov",
-                "sales": 10000,
-                "profit": 5000
-              },
-              {
-                "month": "Dec",
-                "sales": 11000,
-                "profit": 5500
-              }
-            ]
-          },
-          "properties": {}
-        },
-        {
-          "id": 8,
-          "component_type": "line_chart",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 5"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 5"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 5"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 5"
-            }
-          ],
-          "data": {
-            "title": "Monthly Sales",
-            "data": [
-              {
-                "month": "Jan",
-                "sales": 4000
-              },
-              {
-                "month": "Feb",
-                "sales": 3000
-              },
-              {
-                "month": "Mar",
-                "sales": 5000
-              },
-              {
-                "month": "Apr",
-                "sales": 7000
-              },
-              {
-                "month": "May",
-                "sales": 6000
-              },
-              {
-                "month": "Jun",
-                "sales": 8000
-              },
-              {
-                "month": "Jul",
-                "sales": 7500
-              },
-              {
-                "month": "Aug",
-                "sales": 9000
-              },
-              {
-                "month": "Sep",
-                "sales": 8500
-              },
-              {
-                "month": "Oct",
-                "sales": 9500
-              },
-              {
-                "month": "Nov",
-                "sales": 10000
-              },
-              {
-                "month": "Dec",
-                "sales": 11000
-              }
-            ]
-          },
-          "properties": {}
-        }
-      ]
-    },
-    {
-      "id": "1229",
-      "components": [
-        {
-          "id": 8581,
-          "title": "Monthly Tickets",
-          "description": "Description of Metric 3",
+          "id": 3826,
+          "title": "Tickets by Category",
+          "description": "Distribution of tickets across different categories",
           "conversation": [],
-          "component_type": "pie_chart",
+          "component_type": "charts",
           "data": {
-            "title": "Monthly Tickets",
-            "label1": "Tickets",
-            "label2": "Resolved",
+            "title": "Category Distribution",
+            "label1": "Count",
+            "sub_component_type": "pie_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Technical issues dominate with 45% of all tickets, followed by billing issues at 27%. This suggests a need for improved technical documentation and billing process optimization.",
             "data": [
               {
-                "month": "Jan",
-                "tickets": 4000,
-                "resolved": 2000
+                "month": "Technical",
+                "tickets": 2500
               },
               {
-                "month": "Feb",
-                "tickets": 3000,
-                "resolved": 1500
+                "month": "Billing",
+                "tickets": 1500
               },
               {
-                "month": "Mar",
-                "tickets": 5000,
-                "resolved": 2500
+                "month": "Account",
+                "tickets": 800
               },
               {
-                "month": "Apr",
-                "tickets": 7000,
-                "resolved": 3500
-              },
-              {
-                "month": "May",
-                "tickets": 6000,
-                "resolved": 3000
-              },
-              {
-                "month": "Jun",
-                "tickets": 8000,
-                "resolved": 4000
-              },
-              {
-                "month": "Jul",
-                "tickets": 7500,
-                "resolved": 3750
-              },
-              {
-                "month": "Aug",
-                "tickets": 9000,
-                "resolved": 4500
-              },
-              {
-                "month": "Sep",
-                "tickets": 8500,
-                "resolved": 4250
-              },
-              {
-                "month": "Oct",
-                "tickets": 9500,
-                "resolved": 4750
-              },
-              {
-                "month": "Nov",
-                "tickets": 10000,
-                "resolved": 5000
-              },
-              {
-                "month": "Dec",
-                "tickets": 11000,
-                "resolved": 5500
+                "month": "Feature",
+                "tickets": 700
               }
             ]
           },
           "properties": {}
         },
         {
-          "id": "6",
-          "title": "Monthly Sales",
-          "description": "Description of Metric 3",
-          "conversation": [
-            {
-              "type": "user",
-              "message": "Sample Metric 3"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 3"
-            },
-            {
-              "type": "user",
-              "message": "Sample Metric 3"
-            },
-            {
-              "type": "assistant",
-              "message": "Here is Sample Metric 3"
-            }
-          ],
-          "component_type": "area_chart",
+          "id": "1",
+          "title": "Total Ticket Volume",
+          "description": "Monthly trend of total tickets received",
+          "conversation": [],
+          "component_type": "charts",
           "data": {
-            "title": "Monthly Sales",
+            "title": "Ticket Volume Trends",
+            "label1": "Received",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Ticket volume shows a consistent upward trend with a 62.5% increase from January to June, suggesting the need for increased support capacity planning.",
             "data": [
               {
                 "month": "Jan",
-                "sales": 4000,
-                "profit": 2000
+                "tickets": 3200
               },
               {
                 "month": "Feb",
-                "sales": 3000,
-                "profit": 1500
+                "tickets": 3600
               },
               {
                 "month": "Mar",
-                "sales": 5000,
-                "profit": 2500
+                "tickets": 4100
               },
               {
                 "month": "Apr",
-                "sales": 7000,
-                "profit": 3500
+                "tickets": 3800
               },
               {
                 "month": "May",
-                "sales": 6000,
-                "profit": 3000
+                "tickets": 4500
               },
               {
                 "month": "Jun",
-                "sales": 8000,
-                "profit": 4000
+                "tickets": 5200
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "3",
+          "title": "Tickets by Channel",
+          "description": "Distribution of tickets across different communication channels",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Channel Distribution",
+            "label1": "Count",
+            "sub_component_type": "bar_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Email remains the preferred channel (40%), with chat following at 30%. The low portal usage (10%) suggests an opportunity to improve self-service adoption.",
+            "data": [
+              {
+                "month": "Email",
+                "tickets": 3000
               },
               {
-                "month": "Jul",
-                "sales": 7500,
-                "profit": 3750
+                "month": "Chat",
+                "tickets": 2250
               },
               {
-                "month": "Aug",
-                "sales": 9000,
-                "profit": 4500
+                "month": "Phone",
+                "tickets": 1500
               },
               {
-                "month": "Sep",
-                "sales": 8500,
-                "profit": 4250
+                "month": "Portal",
+                "tickets": 750
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "4",
+          "title": "First Response Time",
+          "description": "Monthly trend of average first response time",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "First Response Time Trends",
+            "label1": "Average (minutes)",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "First response time has improved by 51% from January to June, dropping from 45 to 22 minutes, indicating successful optimization of initial response processes.",
+            "data": [
+              {
+                "month": "Jan",
+                "tickets": 45
               },
               {
-                "month": "Oct",
-                "sales": 9500,
-                "profit": 4750
+                "month": "Feb",
+                "tickets": 38
               },
               {
-                "month": "Nov",
-                "sales": 10000,
-                "profit": 5000
+                "month": "Mar",
+                "tickets": 32
               },
               {
-                "month": "Dec",
-                "sales": 11000,
-                "profit": 5500
+                "month": "Apr",
+                "tickets": 28
+              },
+              {
+                "month": "May",
+                "tickets": 25
+              },
+              {
+                "month": "Jun",
+                "tickets": 22
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "5",
+          "title": "Tickets by Priority",
+          "description": "Distribution of tickets by priority level",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Priority Distribution",
+            "label1": "Count",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Medium priority tickets constitute 40% of total volume, while critical issues represent 10%. This balanced distribution suggests effective priority categorization.",
+            "data": [
+              {
+                "month": "Critical",
+                "tickets": 500
+              },
+              {
+                "month": "High",
+                "tickets": 1500
+              },
+              {
+                "month": "Medium",
+                "tickets": 2000
+              },
+              {
+                "month": "Low",
+                "tickets": 1000
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "7",
+          "title": "Agent Productivity",
+          "description": "Performance metrics for support agents",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Agent Productivity Metrics",
+            "label1": "Tickets Resolved",
+            "sub_component_type": "bar_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Top performers average 45+ tickets per day, while team average is 32. There's a 40% variance between highest and lowest performing agents, suggesting opportunity for knowledge sharing.",
+            "data": [
+              {
+                "month": "John Doe",
+                "tickets": 45
+              },
+              {
+                "month": "Jane Smith",
+                "tickets": 38
+              },
+              {
+                "month": "Mike Johnson",
+                "tickets": 32
+              },
+              {
+                "month": "Sarah Wilson",
+                "tickets": 28
+              },
+              {
+                "month": "Tom Brown",
+                "tickets": 25
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": 2096,
+          "title": "Untitled",
+          "description": "Untitled Description",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Ticket Volume Trends",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "label1": "Received",
+            "insight": "Ticket volume shows a consistent upward trend with a 62.5% increase from January to June, suggesting the need for increased support capacity planning.",
+            "data": [
+              {
+                "month": "Jan",
+                "tickets": 3200
+              },
+              {
+                "month": "Feb",
+                "tickets": 3600
+              },
+              {
+                "month": "Mar",
+                "tickets": 4100
+              },
+              {
+                "month": "Apr",
+                "tickets": 3800
+              },
+              {
+                "month": "May",
+                "tickets": 4500
+              },
+              {
+                "month": "Jun",
+                "tickets": 5200
               }
             ]
           },
           "properties": {}
         }
       ],
-      "title": "report 5",
-      "description": "report desc",
+      "id": "4788"
+    },
+    {
+      "id": "974",
+      "components": [
+        {
+          "id": "7",
+          "title": "Agent Productivity",
+          "description": "Performance metrics for support agents",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Agent Productivity Metrics",
+            "label1": "Tickets Resolved",
+            "sub_component_type": "bar_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Top performers average 45+ tickets per day, while team average is 32. There's a 40% variance between highest and lowest performing agents, suggesting opportunity for knowledge sharing.",
+            "data": [
+              {
+                "month": "John Doe",
+                "tickets": 45
+              },
+              {
+                "month": "Jane Smith",
+                "tickets": 38
+              },
+              {
+                "month": "Mike Johnson",
+                "tickets": 32
+              },
+              {
+                "month": "Sarah Wilson",
+                "tickets": 28
+              },
+              {
+                "month": "Tom Brown",
+                "tickets": 25
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "8",
+          "title": "Average Handle Time",
+          "description": "Time spent by agents resolving tickets",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Handle Time Trends",
+            "label1": "Minutes",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Handle time has decreased 23% over 6 months, from 35 to 27 minutes average, indicating improved agent efficiency and better use of knowledge base.",
+            "data": [
+              {
+                "month": "Jan",
+                "tickets": 35
+              },
+              {
+                "month": "Feb",
+                "tickets": 33
+              },
+              {
+                "month": "Mar",
+                "tickets": 31
+              },
+              {
+                "month": "Apr",
+                "tickets": 29
+              },
+              {
+                "month": "May",
+                "tickets": 28
+              },
+              {
+                "month": "Jun",
+                "tickets": 27
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": "9",
+          "title": "Agent CSAT Scores",
+          "description": "Customer satisfaction ratings by agent",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Agent CSAT Distribution",
+            "label1": "Score",
+            "sub_component_type": "radar_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Team maintains strong CSAT with 87% average. Three agents consistently achieve 90%+ satisfaction, their best practices could be shared with the team.",
+            "data": [
+              {
+                "month": "John Doe",
+                "tickets": 92
+              },
+              {
+                "month": "Jane Smith",
+                "tickets": 90
+              },
+              {
+                "month": "Mike Johnson",
+                "tickets": 87
+              },
+              {
+                "month": "Sarah Wilson",
+                "tickets": 85
+              },
+              {
+                "month": "Tom Brown",
+                "tickets": 83
+              }
+            ]
+          },
+          "properties": {}
+        }
+      ],
+      "title": "Agent Perfomance Monitoring",
+      "description": "Report about Agent Performance",
+      "conversation": []
+    },
+    {
+      "id": 4424,
+      "components": [
+        {
+          "id": "3",
+          "title": "Tickets by Channel",
+          "description": "Distribution of tickets across different communication channels",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Channel Distribution",
+            "label1": "Count",
+            "sub_component_type": "bar_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Email remains the preferred channel (40%), with chat following at 30%. The low portal usage (10%) suggests an opportunity to improve self-service adoption.",
+            "data": [
+              {
+                "month": "Email",
+                "tickets": 3000
+              },
+              {
+                "month": "Chat",
+                "tickets": 2250
+              },
+              {
+                "month": "Phone",
+                "tickets": 1500
+              },
+              {
+                "month": "Portal",
+                "tickets": 750
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
+          "id": 6313,
+          "title": "Tickets by Priority",
+          "description": "Distribution of tickets by priority level",
+          "conversation": [],
+          "component_type": "charts",
+          "data": {
+            "title": "Priority Distribution",
+            "label1": "Count",
+            "sub_component_type": "line_chart",
+            "supported_sub_components": [
+              "line_chart",
+              "bar_chart",
+              "pie_chart",
+              "area_chart",
+              "radar_chart"
+            ],
+            "insight": "Medium priority tickets constitute 40% of total volume, while critical issues represent 10%. This balanced distribution suggests effective priority categorization.",
+            "data": [
+              {
+                "month": "Critical",
+                "tickets": 500
+              },
+              {
+                "month": "High",
+                "tickets": 1500
+              },
+              {
+                "month": "Medium",
+                "tickets": 2000
+              },
+              {
+                "month": "Low",
+                "tickets": 1000
+              }
+            ]
+          },
+          "properties": {}
+        }
+      ],
+      "title": "Untitled",
+      "description": "Untitled Description",
       "conversation": [
         {
           "type": "user",
-          "message": "fa"
+          "message": "give some"
         },
         {
           "type": "assistant",
@@ -756,78 +557,172 @@
   ],
   "metrics": [
     {
-      "id": "4",
-      "title": "Monthly Sales (Line Chart)",
-      "description": "Description of Metric 1",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 1"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 1"
-        }
-      ],
-      "component_type": "line_chart",
+      "id": "1",
+      "title": "Total Ticket Volume",
+      "description": "Monthly trend of total tickets received",
+      "conversation": [],
+      "component_type": "charts",
       "data": {
-        "title": "Monthly Sales",
+        "title": "Ticket Volume Trends",
+        "sub_component_type": "line_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "label1": "Received",
+        "insight": "Ticket volume shows a consistent upward trend with a 62.5% increase from January to June, suggesting the need for increased support capacity planning.",
         "data": [
           {
             "month": "Jan",
-            "sales": 4000
+            "tickets": 3200
           },
           {
             "month": "Feb",
-            "sales": 3000
+            "tickets": 3600
           },
           {
             "month": "Mar",
-            "sales": 5000
+            "tickets": 4100
           },
           {
             "month": "Apr",
-            "sales": 7000
+            "tickets": 3800
           },
           {
             "month": "May",
-            "sales": 6000
+            "tickets": 4500
           },
           {
             "month": "Jun",
-            "sales": 8000
+            "tickets": 5200
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "2",
+      "title": "Tickets by Category",
+      "description": "Distribution of tickets across different categories",
+      "conversation": [],
+      "component_type": "charts",
+      "data": {
+        "title": "Category Distribution",
+        "label1": "Count",
+        "sub_component_type": "pie_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Technical issues dominate with 45% of all tickets, followed by billing issues at 27%. This suggests a need for improved technical documentation and billing process optimization.",
+        "data": [
+          {
+            "month": "Technical",
+            "tickets": 2500
           },
           {
-            "month": "Jul",
-            "sales": 7500
+            "month": "Billing",
+            "tickets": 1500
           },
           {
-            "month": "Aug",
-            "sales": 9000
+            "month": "Account",
+            "tickets": 800
           },
           {
-            "month": "Sep",
-            "sales": 8500
+            "month": "Feature",
+            "tickets": 700
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "3",
+      "title": "Tickets by Channel",
+      "description": "Distribution of tickets across different communication channels",
+      "conversation": [],
+      "component_type": "charts",
+      "data": {
+        "title": "Channel Distribution",
+        "label1": "Count",
+        "sub_component_type": "bar_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Email remains the preferred channel (40%), with chat following at 30%. The low portal usage (10%) suggests an opportunity to improve self-service adoption.",
+        "data": [
+          {
+            "month": "Email",
+            "tickets": 3000
           },
           {
-            "month": "Oct",
-            "sales": 9500
+            "month": "Chat",
+            "tickets": 2250
           },
           {
-            "month": "Nov",
-            "sales": 10000
+            "month": "Phone",
+            "tickets": 1500
           },
           {
-            "month": "Dec",
-            "sales": 11000
+            "month": "Portal",
+            "tickets": 750
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "4",
+      "title": "First Response Time",
+      "description": "Monthly trend of average first response time",
+      "conversation": [],
+      "component_type": "charts",
+      "data": {
+        "title": "First Response Time Trends",
+        "label1": "Average (minutes)",
+        "sub_component_type": "line_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "First response time has improved by 51% from January to June, dropping from 45 to 22 minutes, indicating successful optimization of initial response processes.",
+        "data": [
+          {
+            "month": "Jan",
+            "tickets": 45
+          },
+          {
+            "month": "Feb",
+            "tickets": 38
+          },
+          {
+            "month": "Mar",
+            "tickets": 32
+          },
+          {
+            "month": "Apr",
+            "tickets": 28
+          },
+          {
+            "month": "May",
+            "tickets": 25
+          },
+          {
+            "month": "Jun",
+            "tickets": 22
           }
         ]
       },
@@ -835,271 +730,275 @@
     },
     {
       "id": "5",
-      "title": "Monthly Profit",
-      "description": "Description of Metric 2",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 2"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 2"
-        }
-      ],
-      "component_type": "bar_chart",
+      "title": "Tickets by Priority",
+      "description": "Distribution of tickets by priority level",
+      "conversation": [],
+      "component_type": "charts",
       "data": {
-        "title": "Monthly Profit",
+        "title": "Priority Distribution",
+        "label1": "Count",
+        "sub_component_type": "line_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Medium priority tickets constitute 40% of total volume, while critical issues represent 10%. This balanced distribution suggests effective priority categorization.",
         "data": [
           {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
+            "month": "Critical",
+            "tickets": 500
           },
           {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
+            "month": "High",
+            "tickets": 1500
           },
           {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
+            "month": "Medium",
+            "tickets": 2000
           },
           {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
-          },
-          {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
+            "month": "Low",
+            "tickets": 1000
           }
         ]
       },
       "properties": {}
     },
     {
-      "id": "6",
-      "title": "Monthly Sales",
-      "description": "Description of Metric 3",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        }
-      ],
-      "component_type": "area_chart",
+      "id": "7",
+      "title": "Agent Productivity",
+      "description": "Performance metrics for support agents",
+      "conversation": [],
+      "component_type": "charts",
       "data": {
-        "title": "Monthly Sales",
+        "title": "Agent Productivity Metrics",
+        "label1": "Tickets Resolved",
+        "sub_component_type": "bar_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Top performers average 45+ tickets per day, while team average is 32. There's a 40% variance between highest and lowest performing agents, suggesting opportunity for knowledge sharing.",
         "data": [
           {
-            "month": "Jan",
-            "sales": 4000,
-            "profit": 2000
+            "month": "John Doe",
+            "tickets": 45
           },
           {
-            "month": "Feb",
-            "sales": 3000,
-            "profit": 1500
+            "month": "Jane Smith",
+            "tickets": 38
           },
           {
-            "month": "Mar",
-            "sales": 5000,
-            "profit": 2500
+            "month": "Mike Johnson",
+            "tickets": 32
           },
           {
-            "month": "Apr",
-            "sales": 7000,
-            "profit": 3500
+            "month": "Sarah Wilson",
+            "tickets": 28
           },
           {
-            "month": "May",
-            "sales": 6000,
-            "profit": 3000
-          },
-          {
-            "month": "Jun",
-            "sales": 8000,
-            "profit": 4000
-          },
-          {
-            "month": "Jul",
-            "sales": 7500,
-            "profit": 3750
-          },
-          {
-            "month": "Aug",
-            "sales": 9000,
-            "profit": 4500
-          },
-          {
-            "month": "Sep",
-            "sales": 8500,
-            "profit": 4250
-          },
-          {
-            "month": "Oct",
-            "sales": 9500,
-            "profit": 4750
-          },
-          {
-            "month": "Nov",
-            "sales": 10000,
-            "profit": 5000
-          },
-          {
-            "month": "Dec",
-            "sales": 11000,
-            "profit": 5500
+            "month": "Tom Brown",
+            "tickets": 25
           }
         ]
       },
       "properties": {}
     },
     {
-      "id": "10",
-      "title": "Monthly Tickets",
-      "description": "Description of Metric 3",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        },
-        {
-          "type": "user",
-          "message": "Sample Metric 3"
-        },
-        {
-          "type": "assistant",
-          "message": "Here is Sample Metric 3"
-        }
-      ],
-      "component_type": "pie_chart",
+      "id": "8",
+      "title": "Average Handle Time",
+      "description": "Time spent by agents resolving tickets",
+      "conversation": [],
+      "component_type": "charts",
       "data": {
-        "title": "Monthly Tickets",
-        "label1": "Tickets",
-        "label2": "Resolved",
+        "title": "Handle Time Trends",
+        "label1": "Minutes",
+        "sub_component_type": "line_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Handle time has decreased 23% over 6 months, from 35 to 27 minutes average, indicating improved agent efficiency and better use of knowledge base.",
         "data": [
           {
             "month": "Jan",
-            "tickets": 4000,
-            "resolved": 2000
+            "tickets": 35
           },
           {
             "month": "Feb",
-            "tickets": 3000,
-            "resolved": 1500
+            "tickets": 33
           },
           {
             "month": "Mar",
-            "tickets": 5000,
-            "resolved": 2500
+            "tickets": 31
           },
           {
             "month": "Apr",
-            "tickets": 7000,
-            "resolved": 3500
+            "tickets": 29
           },
           {
             "month": "May",
-            "tickets": 6000,
-            "resolved": 3000
+            "tickets": 28
           },
           {
             "month": "Jun",
-            "tickets": 8000,
-            "resolved": 4000
+            "tickets": 27
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "9",
+      "title": "Agent CSAT Scores",
+      "description": "Customer satisfaction ratings by agent",
+      "conversation": [],
+      "component_type": "charts",
+      "data": {
+        "title": "Agent CSAT Distribution",
+        "label1": "Score",
+        "sub_component_type": "radar_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Team maintains strong CSAT with 87% average. Three agents consistently achieve 90%+ satisfaction, their best practices could be shared with the team.",
+        "data": [
+          {
+            "month": "John Doe",
+            "tickets": 92
           },
           {
-            "month": "Jul",
-            "tickets": 7500,
-            "resolved": 3750
+            "month": "Jane Smith",
+            "tickets": 90
           },
           {
-            "month": "Aug",
-            "tickets": 9000,
-            "resolved": 4500
+            "month": "Mike Johnson",
+            "tickets": 87
           },
           {
-            "month": "Sep",
-            "tickets": 8500,
-            "resolved": 4250
+            "month": "Sarah Wilson",
+            "tickets": 85
           },
           {
-            "month": "Oct",
-            "tickets": 9500,
-            "resolved": 4750
+            "month": "Tom Brown",
+            "tickets": 83
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "1212",
+      "title": "Test Metric 1",
+      "description": "Test Description",
+      "conversation": [
+        {
+          "type": "user",
+          "message": "give something"
+        },
+        {
+          "type": "assistant",
+          "message": "Sure, here it is"
+        }
+      ],
+      "component_type": "charts",
+      "data": {
+        "title": "Channel Distribution",
+        "label1": "Count",
+        "sub_component_type": "bar_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Email remains the preferred channel (40%), with chat following at 30%. The low portal usage (10%) suggests an opportunity to improve self-service adoption.",
+        "data": [
+          {
+            "month": "Email",
+            "tickets": 3000
           },
           {
-            "month": "Nov",
-            "tickets": 10000,
-            "resolved": 5000
+            "month": "Chat",
+            "tickets": 2250
           },
           {
-            "month": "Dec",
-            "tickets": 11000,
-            "resolved": 5500
+            "month": "Phone",
+            "tickets": 1500
+          },
+          {
+            "month": "Portal",
+            "tickets": 750
+          }
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "id": "5056",
+      "title": "sample metric",
+      "description": "sample description",
+      "conversation": [
+        {
+          "type": "user",
+          "message": "give a random somehting"
+        },
+        {
+          "type": "assistant",
+          "message": "Sure, here it is"
+        },
+        {
+          "type": "user",
+          "message": "a"
+        },
+        {
+          "type": "assistant",
+          "message": "Sure, here it is"
+        }
+      ],
+      "component_type": "charts",
+      "data": {
+        "title": "Priority Distribution",
+        "label1": "Count",
+        "sub_component_type": "line_chart",
+        "supported_sub_components": [
+          "line_chart",
+          "bar_chart",
+          "pie_chart",
+          "area_chart",
+          "radar_chart"
+        ],
+        "insight": "Medium priority tickets constitute 40% of total volume, while critical issues represent 10%. This balanced distribution suggests effective priority categorization.",
+        "data": [
+          {
+            "month": "Critical",
+            "tickets": 500
+          },
+          {
+            "month": "High",
+            "tickets": 1500
+          },
+          {
+            "month": "Medium",
+            "tickets": 2000
+          },
+          {
+            "month": "Low",
+            "tickets": 1000
           }
         ]
       },

@@ -4,6 +4,7 @@ import {
   PieChartGraph,
   RadarChartGraph,
   AreaChartGraph,
+  Charts,
 } from "../components/metrics";
 
 export const componentsMap = {
@@ -12,4 +13,5 @@ export const componentsMap = {
   radar_chart: RadarChartGraph,
   pie_chart: PieChartGraph,
   area_chart: AreaChartGraph,
+  charts: Charts,
 };

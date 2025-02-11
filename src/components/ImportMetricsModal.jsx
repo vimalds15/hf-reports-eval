@@ -12,31 +12,41 @@ const ImportMetricsModal = ({ showImportModal, setShowImportModal }) => {
   const { metrics } = useMetricsContext();
 
   const importMetricHandler = () => {
-    setCanvasMetrics((prev) => [...prev, selectedMetric]);
+    setCanvasMetrics((prev) => {
+      if (prev.length > 0) {
+        return [...prev, selectedMetric];
+      } else {
+        return [selectedMetric];
+      }
+    });
     setShowImportModal(false);
   };
 
   return (
     <Modal isOpen={showImportModal} setIsOpen={setShowImportModal}>
       <p className="font-semibold text-center p-4">Import Metrics</p>
-      <div className="flex flex-col gap-1 overflow-y-scroll p-4">
-        {metrics?.map((metric) => (
-          <div
-            key={metric.id}
-            onClick={() => setSelectedMetric(metric)}
-            className={`px-4 py-4 rounded truncate hover:bg-gray-300 cursor-pointer ${
-              selectedMetric?.id === metric?.id
-                ? "bg-gray-400 hover:bg-gray-400"
-                : ""
-            }`}
-          >
-            {metric?.title}
-          </div>
-        ))}
+      <div className="flex flex-col gap-1">
+        <div className="overflow-y-scroll p-4 max-h-[60vh]">
+          {metrics?.map((metric) => (
+            <div key={metric.id}>
+              <div
+                key={metric.id}
+                onClick={() => setSelectedMetric(metric)}
+                className={`px-4 py-4 min-h-8 rounded truncate hover:bg-gray-300 cursor-pointer ${
+                  selectedMetric?.id === metric?.id
+                    ? "bg-gray-400 hover:bg-gray-400"
+                    : ""
+                }`}
+              >
+                {metric?.title}
+              </div>
+            </div>
+          ))}
+        </div>
 
         <div
           onClick={importMetricHandler}
-          className="text-center font-semibold w-fit mx-auto text-white bg-black px-4 py-2 mt-4 rounded cursor-pointer"
+          className="text-center font-semibold w-fit mx-auto text-white bg-black px-4 py-2 my-4 rounded cursor-pointer"
         >
           Import
         </div>

@@ -13,6 +13,7 @@ import {
   useMetricsContext,
   useActiveItemContext,
   usePropertyItemContext,
+  useEditModeContext,
 } from "../services/context";
 
 const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
@@ -21,8 +22,10 @@ const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
   const { reports, setReports } = useReportsContext();
   const { metrics, setMetrics } = useMetricsContext();
   const { setPropertyItem } = usePropertyItemContext();
+  const { setIsEditEnabled } = useEditModeContext();
 
   const createNewMetricHandler = () => {
+    setIsEditEnabled(true);
     setNewMetric(true);
     setNewReport(false);
     setActiveItem({});
@@ -30,6 +33,7 @@ const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
   };
 
   const createNewReportHandler = () => {
+    setIsEditEnabled(true);
     setNewReport(true);
     setNewMetric(false);
     setActive(null);

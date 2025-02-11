@@ -9,6 +9,7 @@ import {
   PropertyItemProvider,
   usePropertyItemContext,
 } from "./PropertyItemContext";
+import { EditModeProvider, useEditModeContext } from "./EditModeContext";
 
 export {
   ActiveItemProvider,
@@ -16,9 +17,11 @@ export {
   MetricsProvider,
   ReportsProvider,
   PropertyItemProvider,
+  EditModeProvider,
   useActiveItemContext,
   useCanvasDetailsContext,
   useMetricsContext,
   useReportsContext,
   usePropertyItemContext,
+  useEditModeContext,
 };

@@ -9,8 +9,8 @@ const useMetricSelection = (
   const [selectedMetric, setSelectedMetric] = useState("");
 
   const metricSelectionHandler = (e, id) => {
-    e.stopPropagation();
-    const response = activeItem.components.find((item) => item.id === id);
+    e?.stopPropagation();
+    const response = activeItem?.components.find((item) => item.id === id);
     setPropertyItem(response);
     setSelectedMetric(id);
   };

@@ -4,10 +4,13 @@ import RadarChartGraph from "./RadarChartGraph";
 import PieChartGraph from "./PieChartGraph";
 import AreaChartGraph from "./AreaChartGraph";
 
+import Charts from "./Charts";
+
 export {
   LineChartGraph,
   BarChartGraph,
   RadarChartGraph,
   PieChartGraph,
   AreaChartGraph,
+  Charts,
 };

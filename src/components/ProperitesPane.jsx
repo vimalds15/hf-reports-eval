@@ -5,6 +5,7 @@ import {
   useReportsContext,
   useCanvasDetailsContext,
   useActiveItemContext,
+  useEditModeContext,
 } from "../services/context";
 import {
   createMetric,
@@ -25,6 +26,7 @@ const ProperitesPane = ({ newMetric, newReport }) => {
     useCanvasDetailsContext();
 
   const { setActiveItem } = useActiveItemContext();
+  const { isEditEnabled } = useEditModeContext();
 
   const isMetric = !propertyItem?.components;
 
@@ -74,13 +76,17 @@ const ProperitesPane = ({ newMetric, newReport }) => {
     } else {
       await deleteReport(propertyItem.id);
       let updatedReports = reports.filter((item) => item.id != propertyItem.id);
-      setMetrics(updatedReports);
+      setReports(updatedReports);
       setActiveItem({});
     }
   };
 
   return (
-    <div className="flex flex-col justify-between h-screen w-fit p-4 shadow-lg min-w-80 max-w-80">
+    <div
+      className={`flex-col justify-between h-screen w-fit min-w-80 max-w-80 p-4 shadow-lg  ${
+        isEditEnabled ? "flex" : "hidden"
+      }`}
+    >
       <div>
         <div className="font-semibold text-center mb-4">Properties</div>
 
@@ -149,6 +155,7 @@ const ProperitesPane = ({ newMetric, newReport }) => {
             <div
               onClick={() => {
                 if (isMetric) {
+                  console.log(isMetric);
                   deleteItemHandler("metric");
                 } else {
                   deleteItemHandler("report");

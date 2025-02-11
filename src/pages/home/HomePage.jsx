@@ -11,6 +11,7 @@ import {
   ReportsProvider,
   MetricsProvider,
   PropertyItemProvider,
+  EditModeProvider,
 } from "../../services/context";
 
 const HomePage = () => {
@@ -23,28 +24,30 @@ const HomePage = () => {
         <ReportsProvider>
           <MetricsProvider>
             <PropertyItemProvider>
-              <div>
-                <ThreePaneLayout
-                  left={
-                    <SideNavBarPane
-                      setNewMetric={setNewMetric}
-                      setNewReport={setNewReport}
-                    />
-                  }
-                  middle={
-                    <ReportCanvasPane
-                      newMetric={newMetric}
-                      newReport={newReport}
-                    />
-                  }
-                  right={
-                    <ProperitesPane
-                      newMetric={newMetric}
-                      newReport={newReport}
-                    />
-                  }
-                />
-              </div>
+              <EditModeProvider>
+                <div>
+                  <ThreePaneLayout
+                    left={
+                      <SideNavBarPane
+                        setNewMetric={setNewMetric}
+                        setNewReport={setNewReport}
+                      />
+                    }
+                    middle={
+                      <ReportCanvasPane
+                        newMetric={newMetric}
+                        newReport={newReport}
+                      />
+                    }
+                    right={
+                      <ProperitesPane
+                        newMetric={newMetric}
+                        newReport={newReport}
+                      />
+                    }
+                  />
+                </div>
+              </EditModeProvider>
             </PropertyItemProvider>
           </MetricsProvider>
         </ReportsProvider>

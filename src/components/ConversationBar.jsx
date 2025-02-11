@@ -3,11 +3,11 @@ const ConversationBar = ({ submitHandler }) => {
     <form
       onSubmit={submitHandler}
       onClick={(e) => e.stopPropagation()}
-      className="absolute flex shadow-lg max-w-2xl left-1/2 -translate-x-1/2 bottom-6 w-full rounded-full overflow-hidden"
+      className="absolute bg-white flex shadow-lg max-w-2xl left-1/2 -translate-x-1/2 bottom-6 w-full rounded-full overflow-hidden border-t border-[#FF7A0050] shadow-[#ff7a0040]"
     >
       <input
         name="chat-message"
-        className="w-full bg-gray-white py-2 px-4 focus:outline-none"
+        className="w-full bg-gray-white py-2 px-4 focus:outline-none "
       />
       <button
         type="submit"
