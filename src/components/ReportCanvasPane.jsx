@@ -161,6 +161,7 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
                 {canvasMetrics?.map((item, index) => (
                   <div
                     key={item.id}
+                    data-test={item.id}
                     className="relative flex flex-col my-2 bg-white rounded-2xl"
                   >
                     <div

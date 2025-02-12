@@ -151,11 +151,10 @@ const ProperitesPane = ({ newMetric, newReport }) => {
           >
             Save
           </div>
-          {(!newReport || !newMetric) && (
+          {!(newReport || newMetric) && (
             <div
               onClick={() => {
                 if (isMetric) {
-                  console.log(isMetric);
                   deleteItemHandler("metric");
                 } else {
                   deleteItemHandler("report");

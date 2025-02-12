@@ -1,7 +1,7 @@
-import { componentsMap } from "../constants";
+import { COMPONENTS_MAP } from "../constants";
 
 const ComponentMapper = ({ componentId, ...props }) => {
-  const Component = componentsMap[componentId] || null;
+  const Component = COMPONENTS_MAP[componentId] || null;
   return Component ? <Component {...props} /> : null;
 };
 

@@ -1,3 +1,4 @@
-import { componentsMap } from "./components-map";
+import { COMPONENTS_MAP } from "./components-map";
+import { NAV_SECTIONS } from "./side-navbar";
 
-export { componentsMap };
+export { COMPONENTS_MAP, NAV_SECTIONS };

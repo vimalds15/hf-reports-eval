@@ -1,10 +1,4 @@
-import { useEffect, useState } from "react";
-import {
-  getAllMetrics,
-  getAllReports,
-  getMetricsById,
-  getReportById,
-} from "../mock/api";
+import { useEffect, useState, useCallback } from "react";
 import Logo from "../assets/hf.svg";
 import SideNavActionButton from "./SideNavActionButton";
 import SideNavMenuItem from "./SideNavMenuItem";
@@ -15,113 +9,86 @@ import {
   usePropertyItemContext,
   useEditModeContext,
 } from "../services/context";
+import { NAV_SECTIONS } from "../constants";
 
 const SideNavBarPane = ({ setNewReport, setNewMetric }) => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("");
   const { setActiveItem } = useActiveItemContext();
   const { reports, setReports } = useReportsContext();
   const { metrics, setMetrics } = useMetricsContext();
   const { setPropertyItem } = usePropertyItemContext();
   const { setIsEditEnabled } = useEditModeContext();
 
-  const createNewMetricHandler = () => {
-    setIsEditEnabled(true);
-    setNewMetric(true);
-    setNewReport(false);
-    setActiveItem({});
-    setActive(null);
-  };
+  const contextSetters = { reports: setReports, metrics: setMetrics };
 
-  const createNewReportHandler = () => {
+  const handleNewItem = (type) => {
     setIsEditEnabled(true);
-    setNewReport(true);
-    setNewMetric(false);
-    setActive(null);
+    setNewReport(type === "reports");
+    setNewMetric(type === "metrics");
+    setActive("");
     setActiveItem({});
   };
 
-  const selectSideMenuItemHandler = async (id, type) => {
-    if (type === "metric") {
-      await fetchMetricById(id);
-    } else {
-      await fetchReportById(id);
-    }
-    setNewReport(false);
-    setNewMetric(false);
-    setActive(id);
-  };
-
-  const fetchReportById = async (id) => {
-    const response = await getReportById(id);
-    setActiveItem(response);
-    setPropertyItem(response);
-  };
-
-  const fetchMetricById = async (id) => {
-    const response = await getMetricsById(id);
-    setActiveItem(response);
-    setPropertyItem(response);
-  };
-
-  const fetchReportAllReports = async () => {
-    const response = await getAllReports();
-    setReports(response);
-  };
-
-  const fetchReportAllMetrics = async () => {
-    const response = await getAllMetrics();
-    setMetrics(response);
-  };
+  const selectSideMenuItemHandler = useCallback(
+    async (id, type) => {
+      const section = NAV_SECTIONS?.find((s) => s.key === type);
+      if (section) {
+        const response = await section.fetchById(id);
+        setActiveItem(response);
+        setPropertyItem(response);
+      }
+      setNewReport(false);
+      setNewMetric(false);
+      setActive(id);
+    },
+    [setActiveItem, setPropertyItem, setNewReport, setNewMetric]
+  );
 
   useEffect(() => {
-    fetchReportAllReports();
-    fetchReportAllMetrics();
+    NAV_SECTIONS.forEach(async ({ key, fetchAll }) => {
+      const response = await fetchAll();
+      contextSetters[key]?.(response);
+    });
   }, []);
 
   return (
-    <div className="flex flex-col justify-between w-fit max-w-56 min-w-56 p-4 shadow-lg">
-      <div className="flex items-center gap-2">
-        <img src={Logo} className="h-8 w-8" />
-        <p className="font-semibold">Reports</p>
+    <div className="flex flex-col h-screen w-fit max-w-56 min-w-56 p-4 shadow-lg">
+      <div className="flex items-center gap-3">
+        <img src={Logo} className="h-8 w-8" alt="Logo" />
+        <p className="font-semibold text-xl">Reports</p>
       </div>
 
-      <div className="mt-12 flex flex-col justify-between h-full">
-        <div className="h-full">
-          <div className="max-h-[30vh] overflow-y-scroll no-scrollbar">
-            <div className="flex flex-col gap-1">
-              {reports?.map((report) => (
+      <div className="flex-1 overflow-hidden mt-12 flex flex-col">
+        {NAV_SECTIONS.map(({ key, label }, index) => (
+          <div key={key} className="min-h-0 flex flex-col">
+            <p className="font-semibold mb-2">{label}</p>
+            <div
+              className={`${
+                index !== 0 ? "flex-1" : "max-h-[35vh]"
+              } min-h-0 overflow-y-auto no-scrollbar`}
+            >
+              {(key === "reports" ? reports : metrics)?.map((item) => (
                 <SideNavMenuItem
-                  key={report.id}
-                  item={report}
+                  key={item.id}
+                  item={item}
                   active={active}
-                  onClick={(id) => selectSideMenuItemHandler(id, "report")}
+                  onClick={(id) => selectSideMenuItemHandler(id, key)}
                 />
               ))}
             </div>
+
+            {index !== NAV_SECTIONS.length - 1 && (
+              <div className="my-4 h-0.5 w-full bg-gray-200" />
+            )}
           </div>
-          <div className="my-4 h-0.5 w-full bg-gray-200" />
-          <div>
-            <p className="font-semibold mb-2">Metrics</p>
-            <div className="max-h-[35vh] overflow-scroll no-scrollbar">
-              <div className="flex flex-col gap-1 overflow-y-scroll">
-                {metrics?.map((metric) => (
-                  <SideNavMenuItem
-                    key={metric.id}
-                    item={metric}
-                    active={active}
-                    onClick={(id) => selectSideMenuItemHandler(id, "metric")}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <SideNavActionButton
-            onCreateNewMetric={createNewMetricHandler}
-            onCreateNewReport={createNewReportHandler}
-          />
-        </div>
+        ))}
+      </div>
+
+      <div className="pt-4">
+        <SideNavActionButton
+          onCreateNewMetric={() => handleNewItem("metrics")}
+          onCreateNewReport={() => handleNewItem("reports")}
+        />
       </div>
     </div>
   );

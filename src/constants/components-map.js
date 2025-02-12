@@ -7,7 +7,7 @@ import {
   Charts,
 } from "../components/metrics";
 
-export const componentsMap = {
+export const COMPONENTS_MAP = {
   line_chart: LineChartGraph,
   bar_chart: BarChartGraph,
   radar_chart: RadarChartGraph,

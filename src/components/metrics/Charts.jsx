@@ -6,7 +6,7 @@ import AreaChartGraph from "./AreaChartGraph";
 import RadarChartGraph from "./RadarChartGraph";
 
 const Charts = ({ data, preview, fullScreen }) => {
-  const [chartType, setChartType] = useState(null);
+  const [chartType, setChartType] = useState("");
 
   const getChartOptions = (subComponents) => {
     return subComponents?.map((item) => ({
@@ -17,10 +17,7 @@ const Charts = ({ data, preview, fullScreen }) => {
     }));
   };
 
-
   const options = getChartOptions(data?.supported_sub_components);
-
-  console.log(options);
 
   useEffect(() => {
     setChartType(data?.sub_component_type);

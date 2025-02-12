@@ -57,10 +57,10 @@ const FullScreenWidget = ({
             <div
               key={item.id}
               ref={selectedMetric === index ? selectedRef : null}
-              className="my-2"
+              className="my-2 cursor-pointer"
               onClick={() => setSelectedMetric(index)}
             >
-              <div className="flex flex-col h-44 rounded-lg w-full  overflow-hidden">
+              <div className="flex flex-col h-44 rounded-lg w-full  overflow-hidden pointer-events-none">
                 <MetricItem
                   item={item}
                   previewActive={selectedMetric === index}

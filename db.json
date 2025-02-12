@@ -460,7 +460,9 @@
       "conversation": []
     },
     {
-      "id": 4424,
+      "title": "Sample Report",
+      "description": "Untitled Description",
+      "conversation": [],
       "components": [
         {
           "id": "3",
@@ -541,18 +543,7 @@
           "properties": {}
         }
       ],
-      "title": "Untitled",
-      "description": "Untitled Description",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "give some"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        }
-      ]
+      "id": "4424"
     }
   ],
   "metrics": [
@@ -943,62 +934,6 @@
           {
             "month": "Portal",
             "tickets": 750
-          }
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "id": "5056",
-      "title": "sample metric",
-      "description": "sample description",
-      "conversation": [
-        {
-          "type": "user",
-          "message": "give a random somehting"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        },
-        {
-          "type": "user",
-          "message": "a"
-        },
-        {
-          "type": "assistant",
-          "message": "Sure, here it is"
-        }
-      ],
-      "component_type": "charts",
-      "data": {
-        "title": "Priority Distribution",
-        "label1": "Count",
-        "sub_component_type": "line_chart",
-        "supported_sub_components": [
-          "line_chart",
-          "bar_chart",
-          "pie_chart",
-          "area_chart",
-          "radar_chart"
-        ],
-        "insight": "Medium priority tickets constitute 40% of total volume, while critical issues represent 10%. This balanced distribution suggests effective priority categorization.",
-        "data": [
-          {
-            "month": "Critical",
-            "tickets": 500
-          },
-          {
-            "month": "High",
-            "tickets": 1500
-          },
-          {
-            "month": "Medium",
-            "tickets": 2000
-          },
-          {
-            "month": "Low",
-            "tickets": 1000
           }
         ]
       },
