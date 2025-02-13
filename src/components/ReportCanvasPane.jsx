@@ -3,7 +3,6 @@ import ConversationBar from "./ConversationBar";
 import { useMetricSelection, useReportDetailsWithChat } from "../hooks";
 import CanvasHeader from "./CanvasHeader";
 import EditableText from "./EditableText";
-import MetricItem from "./MetricItem";
 import ToggleConversationBarButton from "./ToggleConversationBarButton";
 import {
   useActiveItemContext,
@@ -13,9 +12,10 @@ import {
 } from "../services/context";
 import useResetOnNewCanvas from "../hooks/useResetOnNewCanvas";
 import ImportMetricsModal from "./ImportMetricsModal";
-import { MdAddCircleOutline, MdFullscreen } from "react-icons/md";
+import { MdAddCircleOutline } from "react-icons/md";
 import FullScreenWidget from "./FullScreenWidget";
-import Charts from "./metrics/Charts";
+
+import CanvasMetric from "./CanvasMetric";
 
 const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
   const [showImportModal, setShowImportModal] = useState(false);
@@ -159,27 +159,16 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
 
               <div className="w-full">
                 {canvasMetrics?.map((item, index) => (
-                  <div
+                  <CanvasMetric
                     key={item.id}
-                    data-test={item.id}
-                    className="relative flex flex-col my-2 bg-white rounded-2xl"
-                  >
-                    <div
-                      className="absolute top-3 right-3 cursor-pointer"
-                      onClick={() => setViewFullScreenMetric(index)}
-                    >
-                      <MdFullscreen size={20} />
-                    </div>
-                    <MetricItem
-                      item={item}
-                      selectedMetric={selectedMetric}
-                      metricSelectionHandler={
-                        isEditEnabled ? metricSelectionHandler : () => {}
-                      }
-                      isMetric={isMetric}
-                      newMetric={newMetric}
-                    />
-                  </div>
+                    index={index}
+                    item={item}
+                    selectedMetric={selectedMetric}
+                    metricSelectionHandler={metricSelectionHandler}
+                    isMetric={isMetric}
+                    newMetric={newMetric}
+                    setViewFullScreenMetric={setViewFullScreenMetric}
+                  />
                 ))}
               </div>
 

@@ -1,7 +1,5 @@
 import useMetricSelection from "./useMetricSelection";
 import useReportDetailsWithChat from "./useCanvasDetailsWithChat";
+import useDragAndResize from "./useDragAndResize";
 
-export {
-    useMetricSelection,
-    useReportDetailsWithChat
-}
+export { useMetricSelection, useReportDetailsWithChat, useDragAndResize };
