@@ -15,7 +15,7 @@
       ],
       "components": [
         {
-          "id": 3826,
+          "id": "3826",
           "title": "Tickets by Category",
           "description": "Distribution of tickets across different categories",
           "conversation": [],
@@ -316,6 +316,9 @@
           "properties": {}
         }
       ],
+      "properties": {
+        "layout": []
+      },
       "id": "4788"
     },
     {
