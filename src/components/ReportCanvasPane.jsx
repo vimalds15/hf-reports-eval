@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import ConversationBar from "./ConversationBar";
 import { useMetricSelection, useReportDetailsWithChat } from "../hooks";
 import CanvasHeader from "./CanvasHeader";
-import EditableText from "./EditableText";
-import MetricItem from "./MetricItem";
-import ToggleConversationBarButton from "./ToggleConversationBarButton";
 import {
   useActiveItemContext,
   usePropertyItemContext,
@@ -12,15 +9,10 @@ import {
   useEditModeContext,
 } from "../services/context";
 import useResetOnNewCanvas from "../hooks/useResetOnNewCanvas";
-import ImportMetricsModal from "./ImportMetricsModal";
-import { MdAddCircleOutline, MdFullscreen } from "react-icons/md";
-import FullScreenWidget from "./FullScreenWidget";
-import Charts from "./metrics/Charts";
+import CanvasDefaultText from "./CanvasDefaultText";
+import CanvasContent from "./CanvasContent";
 
 const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
-  const [showImportModal, setShowImportModal] = useState(false);
-  const [viewFullScreenMetric, setViewFullScreenMetric] = useState(false);
-
   const { activeItem } = useActiveItemContext();
   const { setPropertyItem } = usePropertyItemContext();
   const { isEditEnabled, setIsEditEnabled } = useEditModeContext();
@@ -100,10 +92,6 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
     setIsEditEnabled
   );
 
-  const handleToggle = () => {
-    setIsEditEnabled((prev) => !prev);
-  };
-
   return (
     <div
       key={activeItem.id}
@@ -112,117 +100,24 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
     >
       <div className="h-full w-full p-10">
         {(activeItem.id || newMetric || newReport) && (
-          <div className="flex items-center justify-between">
-            <div className="flex-1" />
-            <CanvasHeader
-              title={
-                newReport
-                  ? "Create a New Report"
-                  : newMetric
-                  ? "Create a New Metric"
-                  : canvasTitle
-              }
-            />
-            <div
-              className={`flex-1 flex items-center justify-end ${
-                (newMetric || newReport) && "invisible"
-              }`}
-            >
-              <p className="text-sm mb-2 -mt-[30px] mr-2 font-semibold text-gray-600">
-                Edit
-              </p>
-              <button
-                onClick={handleToggle}
-                className={`w-10 h-5 flex items-center px-1 rounded-full transition-all duration-300 mb-2 -mt-8 ${
-                  isEditEnabled
-                    ? "bg-gradient-primary justify-end"
-                    : "bg-gray-300 justify-start"
-                }`}
-              >
-                <div className="w-3 h-3 bg-white rounded-full shadow-md" />
-              </button>
-            </div>
-          </div>
+          <CanvasHeader
+            newReport={newReport}
+            newMetric={newMetric}
+            canvasTitle={canvasTitle}
+          />
         )}
 
         {activeItem.id || newMetric || newReport ? (
-          <>
-            <div className="h-full shadow-md bg-gray-100 p-6 rounded-lg overflow-scroll no-scrollbar">
-              <div className="flex flex-col gap-1 mb-4">
-                <EditableText text={canvasTitle} setText={setCanvasTitle} />
-                <EditableText
-                  text={canvasDescription}
-                  setText={setCanvasDescription}
-                  size={"sm"}
-                />
-              </div>
-
-              <div className="w-full">
-                {canvasMetrics?.map((item, index) => (
-                  <div
-                    key={item.id}
-                    data-test={item.id}
-                    className="relative flex flex-col my-2 bg-white rounded-2xl"
-                  >
-                    <div
-                      className="absolute top-3 right-3 cursor-pointer"
-                      onClick={() => setViewFullScreenMetric(index)}
-                    >
-                      <MdFullscreen size={20} />
-                    </div>
-                    <MetricItem
-                      item={item}
-                      selectedMetric={selectedMetric}
-                      metricSelectionHandler={
-                        isEditEnabled ? metricSelectionHandler : () => {}
-                      }
-                      isMetric={isMetric}
-                      newMetric={newMetric}
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {isEditEnabled && !isMetric && (
-                <div
-                  onClick={() => setShowImportModal(true)}
-                  className="flex flex-col items-center gap-1 justify-center bg-[#ff7a00]/20 my-4 p-4 rounded-lg cursor-pointer text-sm"
-                >
-                  <MdAddCircleOutline size={24} />
-                  <p>Import Metrics</p>
-                </div>
-              )}
-
-              {typeof viewFullScreenMetric === "number" && (
-                <FullScreenWidget
-                  reportTitle={canvasTitle}
-                  metrics={canvasMetrics}
-                  setIsOpen={setViewFullScreenMetric}
-                  initialIndex={viewFullScreenMetric}
-                />
-              )}
-
-              {isEditEnabled && showImportModal && (
-                <ImportMetricsModal
-                  showImportModal={showImportModal}
-                  setShowImportModal={setShowImportModal}
-                />
-              )}
-            </div>
-
-            {isEditEnabled && (
-              <ToggleConversationBarButton
-                showConversationBar={showConversationBar}
-                setShowConversationBar={setShowConversationBar}
-              />
-            )}
-          </>
+          <CanvasContent
+            metricSelectionHandler={metricSelectionHandler}
+            newReport={newReport}
+            newMetric={newMetric}
+            selectedMetric={selectedMetric}
+            showConversationBar={showConversationBar}
+            setShowConversationBar={setShowConversationBar}
+          />
         ) : (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-lg font-semibold text-gray-500">
-              Select a Report or Metric to Display
-            </p>
-          </div>
+          <CanvasDefaultText />
         )}
 
         {isEditEnabled && showConversationBar && (

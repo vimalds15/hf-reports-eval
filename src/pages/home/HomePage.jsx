@@ -5,54 +5,27 @@ import {
   SideNavBarPane,
 } from "../../components";
 import { ThreePaneLayout } from "../../layout";
-import {
-  ActiveItemProvider,
-  CanvasDetailsProvider,
-  ReportsProvider,
-  MetricsProvider,
-  PropertyItemProvider,
-  EditModeProvider,
-} from "../../services/context";
+import { AppContextProvider } from "../../services/context/wrapper";
 
 const HomePage = () => {
   const [newMetric, setNewMetric] = useState(false);
   const [newReport, setNewReport] = useState(false);
 
   return (
-    <ActiveItemProvider>
-      <CanvasDetailsProvider>
-        <ReportsProvider>
-          <MetricsProvider>
-            <PropertyItemProvider>
-              <EditModeProvider>
-                <div>
-                  <ThreePaneLayout
-                    left={
-                      <SideNavBarPane
-                        setNewMetric={setNewMetric}
-                        setNewReport={setNewReport}
-                      />
-                    }
-                    middle={
-                      <ReportCanvasPane
-                        newMetric={newMetric}
-                        newReport={newReport}
-                      />
-                    }
-                    right={
-                      <ProperitesPane
-                        newMetric={newMetric}
-                        newReport={newReport}
-                      />
-                    }
-                  />
-                </div>
-              </EditModeProvider>
-            </PropertyItemProvider>
-          </MetricsProvider>
-        </ReportsProvider>
-      </CanvasDetailsProvider>
-    </ActiveItemProvider>
+    <AppContextProvider>
+      <ThreePaneLayout
+        left={
+          <SideNavBarPane
+            setNewMetric={setNewMetric}
+            setNewReport={setNewReport}
+          />
+        }
+        middle={
+          <ReportCanvasPane newMetric={newMetric} newReport={newReport} />
+        }
+        right={<ProperitesPane newMetric={newMetric} newReport={newReport} />}
+      />
+    </AppContextProvider>
   );
 };
 
