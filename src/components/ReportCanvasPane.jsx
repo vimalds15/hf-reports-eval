@@ -17,6 +17,14 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
   const { setPropertyItem } = usePropertyItemContext();
   const { isEditEnabled, setIsEditEnabled } = useEditModeContext();
 
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
   const {
     canvasTitle,
     canvasDescription,
@@ -104,6 +112,8 @@ const ReportCanvasPane = ({ newMetric = false, newReport = false }) => {
             newReport={newReport}
             newMetric={newMetric}
             canvasTitle={canvasTitle}
+            dateRange={dateRange}
+            setDateRange={setDateRange}
           />
         )}
 
