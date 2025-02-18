@@ -1,7 +1,7 @@
+import { useEffect, useRef, useState } from "react";
 import { MdFullscreen } from "react-icons/md";
 import MetricItem from "./MetricItem";
 import { useActiveItemContext, useEditModeContext } from "../services/context";
-import { useEffect, useState } from "react";
 import { getLayout, mapLayoutToComponents } from "../utils/helper";
 
 const CanvasMetrics = ({
@@ -13,10 +13,15 @@ const CanvasMetrics = ({
 }) => {
   const [layout, setLayout] = useState([]);
   const [metrics, setMetrics] = useState([]);
-  const [isItemDragging, setIsItemDragging] = useState(false);
+  const [draggingItem, setDraggingItem] = useState(null);
+  const [draggingGroup, setDraggingGroup] = useState(null);
+  const [initialPosition, setInitialPosition] = useState(null);
 
   const { isEditEnabled } = useEditModeContext();
   const { activeItem } = useActiveItemContext();
+
+  const groupRef = useRef(null);
+  const itemRefs = useRef({});
 
   useEffect(() => {
     const response = getLayout(activeItem);
@@ -28,37 +33,60 @@ const CanvasMetrics = ({
     setMetrics(components);
   }, [layout]);
 
+  // Handle Item Drag Start
+  const handleItemMouseDown = (e, groupIndex, itemIndex) => {
+    e.preventDefault();
+    setDraggingItem({ groupIndex, itemIndex });
+    setInitialPosition({ x: e.clientX, y: e.clientY });
+  };
+
+  // Handle Item Drop
+  const handleItemMouseUp = (
+    e,
+    dropGroupIdx,
+    dropItemIdx,
+  ) => {
+    if (draggingItem) {
+      const itemKey = `${dropGroupIdx}-${dropItemIdx}`;
+      const itemElement = itemRefs?.current[itemKey];
+
+      if (itemElement) {
+        itemElement.style.transform = `translate(0px,0px)`;
+      }
+      handleReorder(
+        draggingItem.groupIndex,
+        draggingItem.itemIndex,
+        dropGroupIdx,
+        dropItemIdx
+      );
+    }
+    setDraggingItem(null);
+  };
+
+  // Handle Group Drag Start
+  const handleGroupMouseDown = (e, groupIndex) => {
+    if (!draggingItem) {
+      setDraggingGroup(groupIndex);
+    }
+  };
+
+  // Handle Group Drop
+  const handleGroupMouseUp = (e, dropGroupIdx) => {
+    if (draggingGroup !== null && draggingGroup !== dropGroupIdx) {
+      handleGroupReorder(draggingGroup, dropGroupIdx);
+    }
+    setDraggingGroup(null);
+  };
+
+  // Reorder groups
   const handleGroupReorder = (dragIndex, dropIndex) => {
-    if (!isItemDragging) {
-      const updatedLayout = [...layout];
-      const draggedGroup = updatedLayout.splice(dragIndex, 1)[0];
-      updatedLayout.splice(dropIndex, 0, draggedGroup);
-      setLayout(updatedLayout);
-    }
+    const updatedLayout = [...layout];
+    const draggedGroup = updatedLayout.splice(dragIndex, 1)[0];
+    updatedLayout.splice(dropIndex, 0, draggedGroup);
+    setLayout(updatedLayout);
   };
 
-  const handleGroupDragStart = (e, groupIndex) => {
-    if (!isItemDragging) {
-      e.preventDefault();
-      e.dataTransfer.setData("groupIndex", groupIndex);
-    }
-  };
-
-  const handleGroupDrop = (e, dropIndex) => {
-    if (!isItemDragging) {
-      const dragIndex = parseInt(e.dataTransfer.getData("groupIndex"), 10);
-      if (dragIndex !== dropIndex) {
-        handleGroupReorder(dragIndex, dropIndex);
-      }
-    } else {
-      const dragGroupIdx = parseInt(e.dataTransfer.getData("groupIndex"), 10);
-      const dragItemIdx = parseInt(e.dataTransfer.getData("itemIndex"), 10);
-      if (dragGroupIdx !== dropIndex) {
-        handleReorder(dragGroupIdx, dragItemIdx, dropIndex, null);
-      }
-    }
-  };
-
+  // Reorder items
   const handleReorder = (
     dragGroupIdx,
     dragItemIdx,
@@ -66,38 +94,28 @@ const CanvasMetrics = ({
     dropItemIdx
   ) => {
     const updatedLayout = [...layout];
+    const dragItem = updatedLayout[dragGroupIdx].splice(dragItemIdx, 1)[0];
 
-    console.log(dragGroupIdx, dragItemIdx, dropGroupIdx, dropItemIdx);
-
-    if (dragGroupIdx === dropGroupIdx) {
-      // const group = [...updatedLayout[dragGroupIdx]];
-      // [group[dragItemIdx], group[dropItemIdx]] = [
-      //   group[dropItemIdx],
-      //   group[dragItemIdx],
-      // ];
-      // updatedLayout[dragGroupIdx] = [group[1]];
-    } else {
-      const dragItem = updatedLayout[dragGroupIdx].splice(dragItemIdx, 1)[0];
+    if (dropItemIdx !== null) {
       updatedLayout[dropGroupIdx].splice(dropItemIdx, 0, dragItem);
+    } else {
+      updatedLayout[dropGroupIdx].push(dragItem);
     }
     setLayout(updatedLayout);
   };
 
-  const handleItemDragStart = (e, groupIndex, itemIndex) => {
-    e.stopPropagation();
-    setIsItemDragging(true);
-    e.dataTransfer.setData("groupIndex", groupIndex);
-    e.dataTransfer.setData("itemIndex", itemIndex);
-    console.log("item dragging");
-  };
+  const handleItemMouseMove = (e, groupIndex, index) => {
+    e.preventDefault();
+    if (draggingItem) {
+      const itemKey = `${groupIndex}-${index}`;
+      const itemElement = itemRefs?.current[itemKey];
 
-  const handleItemDrop = (e, dropGroupIdx, dropItemIdx) => {
-    // const dragGroupIdx = parseInt(e.dataTransfer.getData("groupIndex"), 10);
-    // const dragItemIdx = parseInt(e.dataTransfer.getData("itemIndex"), 10);
-    // if (dragGroupIdx !== dropGroupIdx) {
-    //   handleReorder(dragGroupIdx, dragItemIdx, dropGroupIdx, dropItemIdx);
-    // }
-    // setIsItemDragging(false);
+      if (itemElement) {
+        const newX = e.clientX - initialPosition.x;
+        const newY = e.clientY - initialPosition.y;
+        itemElement.style.transform = `translate(${newX}px,${newY}px)`;
+      }
+    }
   };
 
   return (
@@ -106,22 +124,19 @@ const CanvasMetrics = ({
         <div
           key={groupIndex}
           className="p-4 bg-red-500 my-4 grid grid-cols-2 gap-6"
-          onDragStart={(e) => handleGroupDragStart(e, groupIndex)}
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => handleGroupDrop(e, groupIndex)}
+          onMouseDown={(e) => handleGroupMouseDown(e, groupIndex)}
+          onMouseUp={(e) => handleGroupMouseUp(e, groupIndex)}
+          ref={groupRef}
         >
           {metric.map((item, index) => (
             <div
               key={item?.id}
               data-test={item?.id}
-              onDragStart={(e) => handleItemDragStart(e, groupIndex, index)}
-              onDragOver={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-              onDrop={(e) => handleItemDrop(e, groupIndex, index)}
-              className="relative flex flex-col my-2 bg-white rounded-2xl"
-              draggable
+              onMouseDown={(e) => handleItemMouseDown(e, groupIndex, index)}
+              onMouseUp={(e) => handleItemMouseUp(e, groupIndex, index)}
+              onMouseMove={(e) => handleItemMouseMove(e, groupIndex, index)}
+              className="relative flex flex-col my-2 bg-white rounded-2xl cursor-pointer"
+              ref={(el) => (itemRefs.current[`${groupIndex}-${index}`] = el)}
             >
               <div
                 className="absolute top-3 right-3 cursor-pointer"
