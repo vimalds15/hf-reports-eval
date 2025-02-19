@@ -56,7 +56,9 @@ const CanvasContent = ({
           setViewFullScreenMetric={setViewFullScreenMetric}
         />
 
-        {isEditEnabled && !isMetric && <ImportMetricButton />}
+        {isEditEnabled && !isMetric && (
+          <ImportMetricButton setShowImportModal={setShowImportModal} />
+        )}
 
         {typeof viewFullScreenMetric === "number" && (
           <FullScreenWidget

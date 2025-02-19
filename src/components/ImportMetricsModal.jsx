@@ -44,12 +44,13 @@ const ImportMetricsModal = ({ showImportModal, setShowImportModal }) => {
           ))}
         </div>
 
-        <div
+        <button
+          disabled={!selectedMetric || selectedMetric === ""}
           onClick={importMetricHandler}
           className="text-center font-semibold w-fit mx-auto text-white bg-black px-4 py-2 my-4 rounded cursor-pointer"
         >
           Import
-        </div>
+        </button>
       </div>
     </Modal>
   );

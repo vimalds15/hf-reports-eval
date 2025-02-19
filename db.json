@@ -19,7 +19,7 @@
           "title": "Tickets by Category",
           "description": "Distribution of tickets across different categories",
           "conversation": [],
-          "component_type": "charts",
+          "component_type": "pivot_table",
           "data": {
             "title": "Category Distribution",
             "label1": "Count",

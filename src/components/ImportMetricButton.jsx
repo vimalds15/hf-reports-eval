@@ -1,6 +1,6 @@
 import { MdAddCircleOutline } from "react-icons/md";
 
-const ImportMetricButton = (setShowImportModal) => {
+const ImportMetricButton = ({ setShowImportModal }) => {
   return (
     <div
       onClick={() => setShowImportModal(true)}
