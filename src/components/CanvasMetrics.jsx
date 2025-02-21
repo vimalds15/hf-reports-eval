@@ -21,7 +21,7 @@ const CanvasMetrics = ({
         <div
           key={item.id}
           data-test={item.id}
-          className="relative flex flex-col my-2 bg-white rounded-2xl"
+          className="relative flex flex-col my-2 rounded-2xl"
         >
           <div
             className="absolute top-3 right-3 cursor-pointer"

@@ -6,6 +6,7 @@ import {
   AreaChartGraph,
   Charts,
   PivotTableChart,
+  KPICard,
 } from "../components/metrics";
 
 export const COMPONENTS_MAP = {
@@ -16,4 +17,5 @@ export const COMPONENTS_MAP = {
   area_chart: AreaChartGraph,
   charts: Charts,
   pivot_table: PivotTableChart,
+  kpi_card: KPICard,
 };

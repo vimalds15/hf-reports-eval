@@ -5,6 +5,7 @@ import PieChartGraph from "./PieChartGraph";
 import AreaChartGraph from "./AreaChartGraph";
 import PivotTableChart from "./PivotTableChart";
 
+import KPICard from "./KPICard";
 import Charts from "./Charts";
 
 export {
@@ -15,4 +16,5 @@ export {
   AreaChartGraph,
   Charts,
   PivotTableChart,
+  KPICard,
 };

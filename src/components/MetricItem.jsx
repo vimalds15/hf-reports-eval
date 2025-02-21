@@ -1,5 +1,6 @@
 import ComponentMapper from "./ComponentMapper";
 import SparkleIcon from "../assets/glitter.svg";
+import { NON_INDIVIDUAL_COMPONENTS } from "../constants";
 
 const MetricItem = ({
   item,
@@ -23,11 +24,15 @@ const MetricItem = ({
     }`}
   >
     <div
-      className={`p-4 bg-white border-2 rounded-xl ${
-        fullScreen ? "min-h-screen" : "h-full"
-      } ${preview ? "shadow-lg shadow-gray-200" : "shadow-lg"} ${
-        previewActive ? "border-[#FF7A00]" : "border-transparent"
-      }`}
+      className={`p-4 ${
+        !NON_INDIVIDUAL_COMPONENTS.includes(item?.component_type)
+          ? "bg-white shadow-lg"
+          : "bg-transparent shadow-none px-0"
+      } border-2 rounded-xl ${fullScreen ? "min-h-screen" : "h-full"} ${
+        preview
+          ? "shadow-lg shadow-gray-200 bg-white"
+          : "shadow-lg bg-transparent"
+      } ${previewActive ? "border-[#FF7A00]" : "border-transparent"}`}
     >
       <div className={`${preview && "scale-50 -mt-20"}`}>
         <ComponentMapper
@@ -38,13 +43,15 @@ const MetricItem = ({
         />
       </div>
 
-      <div className="flex items-center gap-4 bg-blue-300/20 text-sm px-4 py-4 mt-2 rounded-xl">
-        <img
-          src={SparkleIcon}
-          className="h-6 w-6 transition-all fill-blue-600"
-        />
-        {item?.data?.insight}
-      </div>
+      {item?.data?.insight && (
+        <div className="flex items-center gap-4 bg-blue-300/20 text-sm px-4 py-4 mt-2 rounded-xl">
+          <img
+            src={SparkleIcon}
+            className="h-6 w-6 transition-all fill-blue-600"
+          />
+          {item?.data?.insight}
+        </div>
+      )}
     </div>
   </div>
 );

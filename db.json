@@ -15,6 +15,36 @@
       ],
       "components": [
         {
+          "id": 254,
+          "title": "Key Performance Indicators",
+          "description": "Vital KPIs",
+          "conversation": [],
+          "component_type": "kpi_card",
+          "data": {
+            "title": "Category Distribution",
+            "insight": null,
+            "data": [
+              {
+                "title": "Total Tickets",
+                "count": 2500
+              },
+              {
+                "title": "Resolved Tickets",
+                "count": 1500
+              },
+              {
+                "title": "High Priority Tickets",
+                "count": 800
+              },
+              {
+                "title": "Unresolved Tickets",
+                "count": 700
+              }
+            ]
+          },
+          "properties": {}
+        },
+        {
           "id": 3826,
           "title": "Tickets by Category",
           "description": "Distribution of tickets across different categories",
