@@ -10,7 +10,7 @@ import ToggleConversationBarButton from "./ToggleConversationBarButton";
 import ImportMetricButton from "./ImportMetricButton";
 import ImportMetricsModal from "./ImportMetricsModal";
 import FullScreenWidget from "./FullScreenWidget";
-import CanvasMetrics from "./CanvasMetrics";
+import CanvasMetricsList from "./CanvasMetricsList";
 
 const CanvasContent = ({
   newReport,
@@ -48,7 +48,7 @@ const CanvasContent = ({
           />
         </div>
 
-        <CanvasMetrics
+        <CanvasMetricsList
           isMetric={isMetric}
           newMetric={newMetric}
           selectedMetric={selectedMetric}
